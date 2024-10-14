@@ -1,0 +1,357 @@
+[
+  {
+    "result": [
+      {
+        "guid": "a0d1b800-3539-44e5-9dea-7a5cb3d05961",
+        "startedAt": "2023-01-28T18:28:24+01:00",
+        "lastActivityAt": "2023-01-28T18:32:29+01:00",
+        "language": "de-DE",
+        "referer": {
+          "referer_medium": "internal",
+          "referer_url": "https://www.salesviewer.com/de"
+        },
+        "campaign": false,
+        "campaignHits": false,
+        "hasVideo": "1",
+        "requiredVideoEvent": "1",
+        "score": "2",
+        "siteSearch": [],
+        "mainInterest": "Preise",
+        "campaignsAll": [],
+        "isVideoPresentable": "1",
+        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36",
+        "company": {
+          "name": "Fricke AG",
+          "city": "Erding",
+          "countryCode": "DE",
+          "countryCode3": "DEU",
+          "isCustomer": false,
+          "category": {
+            "id": "1",
+            "name": "Favorit",
+            "color": "#f9bc15",
+            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\"><path d=\"M0 0h24v24H0z\" fill=\"none\"/><path d=\"M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z\"/><path d=\"M0 0h24v24H0z\" fill=\"none\"/></svg>"
+          },
+          "note": null,
+          "sector": {
+            "name": "Veranstaltungsdienstleistungen",
+            "name_en": "Event"
+          },
+          "employees": [],
+          "tags": []
+        },
+        "visits": [
+          {
+            "startedAt": "2023-01-28T18:28:24+01:00",
+            "lastActivityAt": "2023-01-28T18:32:29+01:00",
+            "url": "https://www.salesviewer.com/de/preise",
+            "referer": "https://www.salesviewer.com/de",
+            "refererMedium": "internal"
+          }
+        ],
+        "interests": [
+          {
+            "name": "Preise",
+            "count": 1,
+            "time": 245
+          }
+        ],
+        "score_overview": [
+          {
+            "id": "101",
+            "url": "https://www.salesviewer.com/de/preise",
+            "value": "2",
+            "count": "1",
+            "summe": "2"
+          }
+        ]
+      },
+      {
+        "guid": "43b927e7-15d9-4072-b463-3d535edd3e55",
+        "startedAt": "2023-01-28T14:38:41+01:00",
+        "lastActivityAt": "2023-01-28T14:38:46+01:00",
+        "language": "de-DE",
+        "referer": {
+          "referer_medium": "search",
+          "referer_source": "Google",
+          "referer_url": "https://www.google.com"
+        },
+        "campaign": false,
+        "campaignHits": false,
+        "hasVideo": "1",
+        "requiredVideoEvent": "1",
+        "score": "2",
+        "siteSearch": [],
+        "mainInterest": "none",
+        "campaignsAll": [],
+        "isVideoPresentable": "1",
+        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+        "company": {
+          "name": "Bauer",
+          "city": "Halberstadt",
+          "countryCode": "DE",
+          "countryCode3": "DEU",
+          "isCustomer": true,
+          "category": {
+            "id": "2",
+            "name": "Kunde",
+            "color": "#e42026",
+            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\"><path d=\"M0 0h24v24H0z\" fill=\"none\"/><path d=\"M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z\"/></svg>"
+          },
+          "note": "Aperiam cumque ab eos odit voluptatem. Omnis fugiat voluptas corporis voluptatibus. Voluptatum possimus voluptatem atque quo consequatur.",
+          "sector": {
+            "name": "Software",
+            "name_en": "Software"
+          },
+          "employees": [
+            {
+              "image": "/img/customer_user/dc7119014273a6cff0ca3a00d2c69a6332602829.png",
+              "name": "Tim Hammer"
+            }
+          ],
+          "tags": []
+        },
+        "visits": [
+          {
+            "startedAt": "2023-01-28T14:38:41+01:00",
+            "lastActivityAt": "2023-01-28T14:38:46+01:00",
+            "url": "https://www.salesviewer.com/de",
+            "referer": "https://www.google.com",
+            "refererMedium": "search",
+            "refererSource": "Google"
+          }
+        ],
+        "interests": [],
+        "score_overview": [
+          {
+            "id": "97",
+            "url": "https://www.salesviewer.com/de/",
+            "value": "2",
+            "count": "1",
+            "summe": "2"
+          }
+        ]
+      },
+      {
+        "guid": "4d52b305-cd05-4767-ab88-66d41f5dc922",
+        "startedAt": "2023-01-28T11:21:54+01:00",
+        "lastActivityAt": "2023-01-28T11:31:01+01:00",
+        "language": "de-DE",
+        "referer": {
+          "referer_medium": "internal",
+          "referer_url": "https://www.salesviewer.com/de"
+        },
+        "campaign": false,
+        "campaignHits": false,
+        "hasVideo": "1",
+        "requiredVideoEvent": "1",
+        "score": "2",
+        "siteSearch": [],
+        "mainInterest": "Preise",
+        "campaignsAll": [],
+        "isVideoPresentable": "1",
+        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36",
+        "company": {
+          "name": "Kr\u00f6ger",
+          "city": "Bingen am Rhein",
+          "countryCode": "DE",
+          "countryCode3": "DEU",
+          "isCustomer": false,
+          "category": {
+            "id": "1",
+            "name": "Favorit",
+            "color": "#f9bc15",
+            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\"><path d=\"M0 0h24v24H0z\" fill=\"none\"/><path d=\"M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z\"/><path d=\"M0 0h24v24H0z\" fill=\"none\"/></svg>"
+          },
+          "note": null,
+          "sector": {
+            "name": "Veranstaltungsdienstleistungen",
+            "name_en": "Event"
+          },
+          "employees": [],
+          "tags": []
+        },
+        "visits": [
+          {
+            "startedAt": "2023-01-28T11:21:54+01:00",
+            "lastActivityAt": "2023-01-28T11:31:01+01:00",
+            "url": "https://www.salesviewer.com/de/preise",
+            "referer": "https://www.salesviewer.com/de",
+            "refererMedium": "internal",
+            "events": [
+              {
+                "name": "Data-name: Preise-Stage02-Mini-Pro",
+                "type": "dataNameClick",
+                "ts": "2023-01-28 11:22:11.990",
+                "display": "Preise-Stage02-Mini-Pro",
+                "url": null,
+                "downloadname": "Data-Name: Preise-Stage02-Mini-Pro"
+              }
+            ]
+          }
+        ],
+        "interests": [
+          {
+            "name": "Preise",
+            "count": 1,
+            "time": 547
+          }
+        ],
+        "score_overview": [
+          {
+            "id": "101",
+            "url": "https://www.salesviewer.com/de/preise",
+            "value": "2",
+            "count": "1",
+            "summe": "2"
+          }
+        ]
+      },
+      {
+        "guid": "d91ca657-3e79-41f1-ade6-d631890e26bf",
+        "startedAt": "2023-01-28T11:00:24+01:00",
+        "lastActivityAt": "2023-01-28T11:02:39+01:00",
+        "language": "de-DE",
+        "referer": {
+          "referer_medium": "search",
+          "referer_source": "Google",
+          "referer_url": "https://www.google.com"
+        },
+        "campaign": false,
+        "campaignHits": false,
+        "hasVideo": "1",
+        "requiredVideoEvent": "1",
+        "score": "6",
+        "siteSearch": [],
+        "mainInterest": "Preise",
+        "campaignsAll": [],
+        "isVideoPresentable": "1",
+        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36",
+        "company": {
+          "name": "Peter",
+          "city": "Haltern am See",
+          "countryCode": "DE",
+          "countryCode3": "DEU",
+          "isCustomer": false,
+          "category": {
+            "id": "1",
+            "name": "Favorit",
+            "color": "#f9bc15",
+            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\"><path d=\"M0 0h24v24H0z\" fill=\"none\"/><path d=\"M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z\"/><path d=\"M0 0h24v24H0z\" fill=\"none\"/></svg>"
+          },
+          "note": null,
+          "sector": {
+            "name": "Veranstaltungsdienstleistungen",
+            "name_en": "Event"
+          },
+          "employees": [],
+          "tags": []
+        },
+        "visits": [
+          {
+            "startedAt": "2023-01-28T11:00:24+01:00",
+            "lastActivityAt": "2023-01-28T11:00:33+01:00",
+            "url": "https://www.salesviewer.com/de",
+            "referer": "https://www.google.com",
+            "refererMedium": "search",
+            "refererSource": "Google",
+            "events": [
+              {
+                "name": "Form interaction",
+                "type": "formInteraction",
+                "ts": "2023-01-28 11:00:26.153",
+                "display": null,
+                "url": null,
+                "downloadname": "Formularinteraktion"
+              },
+              {
+                "name": "Data-name: Domainlog-DE-Button",
+                "type": "dataNameClick",
+                "ts": "2023-01-28 11:00:29.806",
+                "display": "Domainlog-DE-Button",
+                "url": null,
+                "downloadname": "Data-Name: Domainlog-DE-Button"
+              },
+              {
+                "name": "Form interaction",
+                "type": "formInteraction",
+                "ts": "2023-01-28 11:00:29.808",
+                "display": null,
+                "url": null,
+                "downloadname": "Formularinteraktion"
+              },
+              {
+                "name": "Form submit",
+                "type": "formSubmit",
+                "ts": "2023-01-28 11:00:29.889",
+                "display": null,
+                "url": null,
+                "downloadname": "Formular abgeschickt"
+              }
+            ]
+          },
+          {
+            "startedAt": "2023-01-28T11:00:33+01:00",
+            "lastActivityAt": "2023-01-28T11:00:37+01:00",
+            "url": "https://www.salesviewer.com/de/testen/?websiteentry=d&websiteurl=https%3A%2F%2Fwww.chrisfengler.de",
+            "referer": "https://www.salesviewer.com/de",
+            "refererMedium": "internal"
+          },
+          {
+            "startedAt": "2023-01-28T11:00:39+01:00",
+            "lastActivityAt": "2023-01-28T11:02:31+01:00",
+            "url": "https://www.salesviewer.com/de",
+            "referer": "https://www.google.com",
+            "refererMedium": "search",
+            "refererSource": "Google",
+            "events": [
+              {
+                "name": "dataNameClick",
+                "type": "dataNameClick",
+                "ts": "2023-01-28 11:02:32.535",
+                "display": null,
+                "url": null,
+                "downloadname": null
+              }
+            ]
+          },
+          {
+            "startedAt": "2023-01-28T11:02:33+01:00",
+            "lastActivityAt": "2023-01-28T11:02:39+01:00",
+            "url": "https://www.salesviewer.com/de/preise",
+            "referer": "https://www.salesviewer.com/de",
+            "refererMedium": "internal"
+          }
+        ],
+        "interests": [
+          {
+            "name": "Preise",
+            "count": 1,
+            "time": 5
+          },
+          {
+            "name": "Testen",
+            "count": 1,
+            "time": 3
+          }
+        ],
+        "score_overview": [
+          {
+            "id": "97",
+            "url": "https://www.salesviewer.com/de/",
+            "value": "2",
+            "count": "2",
+            "summe": "4"
+          },
+          {
+            "id": "101",
+            "url": "https://www.salesviewer.com/de/preise",
+            "value": "2",
+            "count": "1",
+            "summe": "2"
+          }
+        ]
+      }
+    ]
+  }
+]
