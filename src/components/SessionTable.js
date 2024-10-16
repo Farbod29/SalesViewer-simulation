@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import sessionData from '../sessionData.json'; // Import your JSON data
+import sessionData from '../sessionData.json'; //
 
 const SessionTable = () => {
   const [hoveredSession, setHoveredSession] = useState(null);
@@ -10,13 +10,13 @@ const SessionTable = () => {
         <thead className="bg-gray-50 text-left">
           <tr className="border-b space-x-2">
             <th className="p-4 font-semibold">Dates</th>
-            <th className="p-4 font-semibold">Company</th>
-            <th className="p-4 font-semibold">City</th>
-            <th className="p-4 font-semibold">Pages</th>
-            <th className="p-4 font-semibold">Duration</th>
-            <th className="p-4 font-semibold">Main Interest</th>
-            <th className="p-4 font-semibold">Score</th>
-            <th className="p-4 font-semibold">More</th>
+            <th className="p-4 font-semibold">Unternehmen</th>
+            {/* <th className="p-4 font-semibold">City</th> */}
+            <th className="p-4 font-semibold">Stadt</th>
+            <th className="p-4 font-semibold"> Interest</th>
+            <th className="p-4 font-semibold">Dauer</th>
+            {/* <th className="p-4 font-semibold">Scorne</th> */}
+            {/* <th className="p-4 font-semibold">More</th> */}
           </tr>
         </thead>
         <tbody className="bg-white divide-y divide-gray-200">
@@ -52,6 +52,11 @@ const SessionTable = () => {
                 {new Date(session.lastActivityAt).getMinutes() -
                   new Date(session.startedAt).getMinutes()}{' '}
                 min
+              </td>
+
+              {/* referer_source */}
+              <td className="p-4 whitespace-nowrap text-sm text-gray-700">
+                {session.referer.referer_source}
               </td>
 
               {/* Main Interest */}
