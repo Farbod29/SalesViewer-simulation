@@ -1,31 +1,44 @@
 import React, { useState } from 'react';
-import sessionData from '../sessionData.json'; //
+import sessionData from '../sessionData.json'; // Import your JSON data
 
 const SessionTable = () => {
   const [hoveredSession, setHoveredSession] = useState(null);
 
+  const calculateTimeSpent = (visit) => {
+    const startTime = new Date(visit.startedAt).getTime();
+    const endTime = new Date(visit.lastActivityAt).getTime();
+    return Math.round((endTime - startTime) / 1000); // Time in seconds
+  };
+
+  const calculateTotalTime = (visits) => {
+    return visits.reduce(
+      (total, visit) => total + calculateTimeSpent(visit),
+      0
+    );
+  };
+
   return (
     <div className="overflow-x-auto shadow-sm rounded-lg">
-      <table className="min-w-full table-auto border-collapse border border-gray-200">
+      <table className="min-w-full table-auto border-collapse border border-gray-300">
         <thead className="bg-gray-50 text-left">
-          <tr className="border-b space-x-2">
-            <th className="p-4 font-semibold">Dates</th>
-            <th className="p-4 font-semibold">Unternehmen</th>
-            {/* <th className="p-4 font-semibold">City</th> */}
-            <th className="p-4 font-semibold">Stadt</th>
-            <th className="p-4 font-semibold"> Interest</th>
-            <th className="p-4 font-semibold">Dauer</th>
-            {/* <th className="p-4 font-semibold">Scorne</th> */}
-            {/* <th className="p-4 font-semibold">More</th> */}
+          <tr className="border-b space-x-2 border-gray-300">
+            <th className="p-4 font-semibold ">Date</th>
+            <th className="p-4 font-semibold">Company</th>
+            <th className="p-4 font-semibold">City</th>
+            <th className="p-4 font-semibold">Pages</th>
+            <th className="p-4 font-semibold">Duration</th>
+            <th className="p-4 font-semibold">Interest</th>
+            <th className="p-4 font-semibold">Source</th>
+            <th className="p-4 font-semibold">More</th>
           </tr>
         </thead>
-        <tbody className="bg-white divide-y divide-gray-200">
+        <tbody className="bg-white divide-y divide-gray-300">
           {sessionData[0].result.map((session, index) => (
             <tr
               key={index}
               onMouseEnter={() => setHoveredSession(index)}
               onMouseLeave={() => setHoveredSession(null)}
-              className="hover:bg-gray-100 transition-colors"
+              className="hover:bg-gray-200 transition-colors"
             >
               {/* Date */}
               <td className="p-4 whitespace-nowrap text-sm text-gray-700">
@@ -49,29 +62,24 @@ const SessionTable = () => {
 
               {/* Duration */}
               <td className="p-4 whitespace-nowrap text-sm text-gray-700">
-                {new Date(session.lastActivityAt).getMinutes() -
-                  new Date(session.startedAt).getMinutes()}{' '}
-                min
-              </td>
-
-              {/* referer_source */}
-              <td className="p-4 whitespace-nowrap text-sm text-gray-700">
-                {session.referer.referer_source}
+                {calculateTotalTime(session.visits)} seconds
               </td>
 
               {/* Main Interest */}
               <td className="p-4 whitespace-nowrap text-sm text-gray-700">
-                {session.mainInterest || 'N/A'}
+                {session.mainInterest !== 'none'
+                  ? session.mainInterest
+                  : 'No main interest'}
               </td>
 
-              {/* Score */}
+              {/* Source */}
               <td className="p-4 whitespace-nowrap text-sm text-gray-700">
-                {session.score}
+                {session.referer.referer_medium || 'N/A'}
               </td>
 
               {/* More Options (e.g., Icons for Interest) */}
               <td className="p-4 whitespace-nowrap text-sm text-gray-700 flex items-center space-x-2">
-                <button className="text-gray-400 hover:text-gray-600">
+                <button className="text-gray-400 hover:text-gray-800">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="16"
@@ -89,19 +97,30 @@ const SessionTable = () => {
         </tbody>
       </table>
 
-      {/* Hover effect to show interests */}
+      {/* Hover effect to show visited pages */}
       {hoveredSession !== null && (
-        <div className="absolute bg-white shadow-lg p-2 border rounded-lg mt-2">
-          <p className="font-bold text-gray-900">Interest Overview</p>
+        <div className="absolute bg-white shadow-lg p-4 border rounded-lg mt-2">
+          <p className="font-bold text-gray-900 mb-2">Visited Pages</p>
           <ul className="text-gray-600">
-            {sessionData[0].result[hoveredSession].interests.map(
-              (interest, i) => (
-                <li key={i} className="py-1">
-                  {interest.name} - Time: {interest.time}s
-                </li>
-              )
-            )}
+            {sessionData[0].result[hoveredSession].visits.map((visit, i) => (
+              <li key={i} className="py-1 px-24 ">
+                <div className="flex justify-between">
+                  <span>{visit.url}</span>
+                  <span className="ml-16">
+                    {calculateTimeSpent(visit)} seconds
+                  </span>
+                </div>
+              </li>
+            ))}
           </ul>
+          <div className="mt-2 font-bold text-gray-900">
+            Total Session Time:{' '}
+            {Math.floor(
+              calculateTotalTime(sessionData[0].result[hoveredSession].visits) /
+                60
+            )}{' '}
+            min
+          </div>
         </div>
       )}
     </div>

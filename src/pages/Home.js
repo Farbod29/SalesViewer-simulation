@@ -1,11 +1,16 @@
+// src/pages/Home.js
+
 import React from 'react';
-import SessionTable from '../components/SessionTable';
+import Header from '../components/Header'; // Import the Header component
+import SessionTable from '../components/SessionTable'; // Import the SessionTable component
 
 const Home = () => {
   return (
-    <div className="container mx-auto ">
-      <h1 className="text-2xl font-bold mb-4">Session Overview</h1>
-      <SessionTable />
+    <div className="min-h-screen bg-white">
+      <Header /> {/* Render the Header component */}
+      <div className="container mx-auto mt-6">
+        <SessionTable /> Render the SessionTable component
+      </div>
     </div>
   );
 };
