@@ -1,26 +1,30 @@
 import React from 'react';
-import logo from '../assents/images/salesViewrLogo.png';
+import { FaSearch } from 'react-icons/fa'; // Import the search icon
+
 import profilePicture from '../assents/images/profilePicture.jpeg';
 
 const Header = () => {
   return (
-    <div className="bg-gray-50 p-0 shadow flex items-center justify-between">
+    <div className="bg-gray-50 shadow flex items-center justify-between p-5">
       {/* Left section with logo and text */}
-      <div className="flex items-center space-x-4">
-        {/* Logo */}
-        <div className="h-20 w-20">
-          <img
-            src={logo}
-            alt="SalesViewer Logo"
-            className="h-full w-full object-cover"
+      <div className="flex items-center">
+        {/* <div className="text-gray-500 text-sm">Session Viewer</div> */}
+      </div>
+
+      {/* Center section with search bar */}
+      <div className="flex-1 flex justify-center">
+        <div className="relative w-1/2">
+          <input
+            type="text"
+            placeholder="Search..."
+            className="w-full pl-10 pr-4 py-2 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-400"
           />
+          <FaSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-300" />
         </div>
-        {/* Session Viewer Text */}
-        <div className="text-gray-500 text-sm">Session Viewer</div>
       </div>
 
       {/* Right section with URL, date, and user profile */}
-      <div className="flex items-center space-x-6 pr-8">
+      <div className="flex items-center space-x-6">
         {/* Website URL */}
         <div className="text-sm text-gray-600 flex items-center">
           <span className="text-green-500 text-lg mr-2"> ● </span>
