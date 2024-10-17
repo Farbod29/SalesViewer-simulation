@@ -208,6 +208,1335 @@
         ]
       },
       {
+        "guid": "7e3d6158-311d-4348-a02b-175a288c1609",
+        "startedAt": "2023-01-27T16:19:39+01:00",
+        "lastActivityAt": "2023-01-27T16:19:41+01:00",
+        "language": "de",
+        "referer": false,
+        "campaign": false,
+        "campaignHits": false,
+        "hasVideo": "1",
+        "requiredVideoEvent": "1",
+        "score": "2",
+        "siteSearch": [],
+        "mainInterest": "none",
+        "campaignsAll": [],
+        "isVideoPresentable": "1",
+        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+        "company": {
+          "name": "Ullrich",
+          "city": "Wiesbaden",
+          "countryCode": "IT",
+          "isCustomer": false,
+          "category": null,
+          "note": null,
+          "sector": {
+            "name": "Marketing & Werbung",
+            "name_en": "Marketing & Communications"
+          },
+          "employees": [],
+          "tags": []
+        },
+        "visits": [
+          {
+            "startedAt": "2023-01-27T16:19:39+01:00",
+            "lastActivityAt": "2023-01-27T16:19:41+01:00",
+            "url": "https://www.salesviewer.com/de"
+          }
+        ],
+        "interests": [],
+        "score_overview": [
+          {
+            "id": "97",
+            "url": "https://www.salesviewer.com/de/",
+            "value": "2",
+            "count": "1",
+            "summe": "2"
+          }
+        ]
+      },
+      {
+        "guid": "e47387b9-4f81-4a38-bb45-d7a4614745e8",
+        "startedAt": "2023-01-27T16:18:16+01:00",
+        "lastActivityAt": "2023-01-27T16:33:56+01:00",
+        "language": "de-DE",
+        "referer": {
+          "referer_medium": "search",
+          "referer_source": "Google",
+          "referer_url": "https://www.google.com"
+        },
+        "campaign": false,
+        "campaignHits": false,
+        "hasVideo": "1",
+        "requiredVideoEvent": "1",
+        "score": "4",
+        "siteSearch": [],
+        "mainInterest": "Englisch",
+        "campaignsAll": [],
+        "isVideoPresentable": null,
+        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+        "company": {
+          "name": "Klaus AG",
+          "city": "Ditzingen",
+          "countryCode": "DE",
+          "isCustomer": false,
+          "category": {
+            "id": "1",
+            "name": "Favorit",
+            "color": "#f9bc15",
+            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\"><path d=\"M0 0h24v24H0z\" fill=\"none\"/><path d=\"M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z\"/><path d=\"M0 0h24v24H0z\" fill=\"none\"/></svg>"
+          },
+          "note": null,
+          "sector": {
+            "name": "Mischkonzern",
+            "name_en": "Multi-industry company"
+          },
+          "employees": [
+            {
+              "image": "/img/customer_user/0dd9135fad6200c95c778f9ff502b24c0328bf9e.png",
+              "name": "Frau Prof. Vera Behrendt B.Eng."
+            }
+          ],
+          "tags": []
+        },
+        "visits": [
+          {
+            "startedAt": "2023-01-27T16:18:16+01:00",
+            "lastActivityAt": "2023-01-27T16:18:21+01:00",
+            "url": "https://www.salesviewer.com/de",
+            "referer": "https://www.google.com",
+            "refererMedium": "search",
+            "refererSource": "Google",
+            "events": [
+              {
+                "name": "Data-name: Sprachselektor",
+                "type": "dataNameClick",
+                "ts": "2023-01-27 16:18:19.867",
+                "display": "Sprachselektor",
+                "url": null,
+                "downloadname": "Data-Name: Sprachselektor"
+              }
+            ]
+          },
+          {
+            "startedAt": "2023-01-27T16:18:21+01:00",
+            "lastActivityAt": "2023-01-27T16:19:48+01:00",
+            "url": "https://www.salesviewer.com/en/?",
+            "referer": "https://www.salesviewer.com/de",
+            "refererMedium": "internal",
+            "events": [
+              {
+                "name": "dataNameClick",
+                "type": "dataNameClick",
+                "ts": "2023-01-27 16:19:45.269",
+                "display": null,
+                "url": null,
+                "downloadname": null
+              }
+            ]
+          },
+          {
+            "startedAt": "2023-01-27T16:19:48+01:00",
+            "lastActivityAt": "2023-01-27T16:33:56+01:00",
+            "url": "https://www.salesviewer.com/en/platform/website-visitor-identification",
+            "referer": "https://www.salesviewer.com/en/?",
+            "refererMedium": "internal",
+            "events": [
+              {
+                "name": "Data-name: Whatis-Stage01-Header-Stageclick",
+                "type": "dataNameClick",
+                "ts": "2023-01-27 16:19:52.502",
+                "display": "Whatis-Stage01-Header-Stageclick",
+                "url": null,
+                "downloadname": "Data-Name: Whatis-Stage01-Header-Stageclick"
+              },
+              {
+                "name": "Data-name: Whatis-Stage01-Header-Stageclick",
+                "type": "dataNameClick",
+                "ts": "2023-01-27 16:19:52.707",
+                "display": "Whatis-Stage01-Header-Stageclick",
+                "url": null,
+                "downloadname": "Data-Name: Whatis-Stage01-Header-Stageclick"
+              },
+              {
+                "name": "Data-name: Whatis-Stage01-Header-Stageclick",
+                "type": "dataNameClick",
+                "ts": "2023-01-27 16:19:52.866",
+                "display": "Whatis-Stage01-Header-Stageclick",
+                "url": null,
+                "downloadname": "Data-Name: Whatis-Stage01-Header-Stageclick"
+              }
+            ]
+          }
+        ],
+        "interests": [
+          {
+            "name": "Englisch",
+            "count": 2,
+            "time": 933
+          }
+        ],
+        "score_overview": [
+          {
+            "id": "97",
+            "url": "https://www.salesviewer.com/de/",
+            "value": "2",
+            "count": "1",
+            "summe": "2"
+          },
+          {
+            "id": "98",
+            "url": "https://www.salesviewer.com/en/",
+            "value": "2",
+            "count": "1",
+            "summe": "2"
+          }
+        ]
+      },
+      {
+        "guid": "498e5edf-e408-4d17-bc44-2cedb975b86d",
+        "startedAt": "2023-01-27T15:59:49+01:00",
+        "lastActivityAt": "2023-01-27T16:00:26+01:00",
+        "language": "de-DE",
+        "referer": {
+          "referer_medium": "search",
+          "referer_source": "Google",
+          "referer_url": "https://www.google.com"
+        },
+        "campaign": false,
+        "campaignHits": false,
+        "hasVideo": "1",
+        "requiredVideoEvent": "1",
+        "score": "2",
+        "siteSearch": [],
+        "mainInterest": "Funktionen",
+        "campaignsAll": [],
+        "isVideoPresentable": "1",
+        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+        "company": {
+          "name": "Henke GmbH & Co. KG",
+          "city": "Nienburg/Weser",
+          "countryCode": "DE",
+          "countryCode3": "DEU",
+          "isCustomer": false,
+          "category": null,
+          "note": null,
+          "sector": {
+            "name": "Informationstechnologie & -dienste",
+            "name_en": "IT & Services"
+          },
+          "employees": [],
+          "tags": []
+        },
+        "visits": [
+          {
+            "startedAt": "2023-01-27T15:59:49+01:00",
+            "lastActivityAt": "2023-01-27T16:00:26+01:00",
+            "url": "https://www.salesviewer.com/de/funktionen",
+            "referer": "https://www.google.com",
+            "refererMedium": "search",
+            "refererSource": "Google",
+            "events": [
+              {
+                "name": "dataNameClick",
+                "type": "dataNameClick",
+                "ts": "2023-01-27 16:00:44.597",
+                "display": null,
+                "url": null,
+                "downloadname": null
+              },
+              {
+                "name": "dataNameClick",
+                "type": "dataNameClick",
+                "ts": "2023-01-27 16:00:47.763",
+                "display": null,
+                "url": null,
+                "downloadname": null
+              },
+              {
+                "name": "Data-name: Funktionen-Stage01-Kopfbereich",
+                "type": "dataNameClick",
+                "ts": "2023-01-27 16:00:50.336",
+                "display": "Funktionen-Stage01-Kopfbereich",
+                "url": null,
+                "downloadname": "Data-Name: Funktionen-Stage01-Kopfbereich"
+              },
+              {
+                "name": "Data-name: Funktionen-Stage01-Kopfbereich",
+                "type": "dataNameClick",
+                "ts": "2023-01-27 16:00:50.703",
+                "display": "Funktionen-Stage01-Kopfbereich",
+                "url": null,
+                "downloadname": "Data-Name: Funktionen-Stage01-Kopfbereich"
+              },
+              {
+                "name": "Data-name: Funktionen-Stage01-Kopfbereich",
+                "type": "dataNameClick",
+                "ts": "2023-01-27 16:00:50.904",
+                "display": "Funktionen-Stage01-Kopfbereich",
+                "url": null,
+                "downloadname": "Data-Name: Funktionen-Stage01-Kopfbereich"
+              },
+              {
+                "name": "Data-name: Funktionen-Stage01-Kopfbereich",
+                "type": "dataNameClick",
+                "ts": "2023-01-27 16:00:52.700",
+                "display": "Funktionen-Stage01-Kopfbereich",
+                "url": null,
+                "downloadname": "Data-Name: Funktionen-Stage01-Kopfbereich"
+              }
+            ]
+          }
+        ],
+        "interests": [
+          {
+            "name": "Funktionen",
+            "count": 1,
+            "time": 37
+          }
+        ],
+        "score_overview": [
+          {
+            "id": "99",
+            "url": "https://www.salesviewer.com/de/funktionen",
+            "value": "2",
+            "count": "1",
+            "summe": "2"
+          }
+        ]
+      },
+      {
+        "guid": "68b8995b-b171-48d4-ae12-07a9818f5f64",
+        "startedAt": "2023-01-27T15:52:02+01:00",
+        "lastActivityAt": "2023-01-27T15:52:04+01:00",
+        "language": "de-DE",
+        "referer": {
+          "referer_medium": "internal",
+          "referer_url": "https://www.salesviewer.com/de"
+        },
+        "campaign": false,
+        "campaignHits": false,
+        "hasVideo": "1",
+        "requiredVideoEvent": "1",
+        "score": "2",
+        "siteSearch": [],
+        "mainInterest": "Funktionen",
+        "campaignsAll": [],
+        "isVideoPresentable": "1",
+        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+        "company": {
+          "name": "Weise KG",
+          "city": "Cuxhaven",
+          "countryCode": "DE",
+          "isCustomer": false,
+          "category": {
+            "id": "7",
+            "name": "Verlorener Kunde",
+            "color": "#000",
+            "icon": "<svg enable-background=\"new 0 0 512 512\" height=\"512px\" id=\"PictoFoundry_Icons\" version=\"1.1\" viewBox=\"0 0 512 512\" width=\"512px\" xml:space=\"preserve\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"><g id=\"_x3C_BrokenHeart_x3E_\"><path d=\"M396.768,12.196C388.527,11.394,380.812,11,373.58,11c-29.875,0-51.705,6.696-70.232,18.331l-19.125,79.643   l18.902,22.312l-25.366,78.5l15.384,19.651l-46.384,104.474l9.295-79.349l-26.339-30.268l18.339-57.018l-34.991-39.045l23.5-75.884   C211.446,26.84,184.446,11,138.411,11c-7.232,0-14.946,0.394-23.196,1.196C65.071,17.099,9.143,63.019,0,151.019v29.285   c9.143,84.224,70.161,188.116,256,318.465C441.821,368.42,505.42,264.527,512,180.304v-29.285   C504.92,63.019,446.92,17.099,396.768,12.196z\" fill=\"#010101\"/></g></svg>"
+          },
+          "note": "Voluptas inventore animi provident suscipit aliquam. Qui quisquam non tempore aut doloremque alias adipisci qui. Repudiandae et sequi vel iure. Aut repellendus optio et enim ratione qui fugiat fuga.",
+          "sector": {
+            "name": "Veranstaltungsdienstleistungen",
+            "name_en": "Event"
+          },
+          "employees": [],
+          "tags": []
+        },
+        "visits": [
+          {
+            "startedAt": "2023-01-27T15:52:02+01:00",
+            "lastActivityAt": "2023-01-27T15:52:04+01:00",
+            "url": "https://www.salesviewer.com/de/funktionen",
+            "referer": "https://www.salesviewer.com/de",
+            "refererMedium": "internal"
+          }
+        ],
+        "interests": [
+          {
+            "name": "Funktionen",
+            "count": 1,
+            "time": 2
+          }
+        ],
+        "score_overview": [
+          {
+            "id": "99",
+            "url": "https://www.salesviewer.com/de/funktionen",
+            "value": "2",
+            "count": "1",
+            "summe": "2"
+          }
+        ]
+      },
+      {
+        "guid": "21b18f1b-416b-42c5-ab4e-2541571a7ca3",
+        "startedAt": "2023-01-27T15:32:55+01:00",
+        "lastActivityAt": "2023-01-27T15:32:55+01:00",
+        "language": "de-DE",
+        "referer": {
+          "referer_medium": "internal",
+          "referer_url": "https://www.salesviewer.com/de/testen"
+        },
+        "campaign": false,
+        "campaignHits": false,
+        "hasVideo": "1",
+        "requiredVideoEvent": "0",
+        "score": "0",
+        "siteSearch": [],
+        "mainInterest": "Testen Danke",
+        "campaignsAll": [],
+        "isVideoPresentable": null,
+        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+        "company": {
+          "name": "Geisler",
+          "city": "Rastede",
+          "countryCode": "DE",
+          "countryCode3": "DEU",
+          "isCustomer": false,
+          "category": null,
+          "note": null,
+          "sector": {
+            "name": "Marketing & Werbung",
+            "name_en": "Marketing & Communications"
+          },
+          "employees": [],
+          "tags": []
+        },
+        "visits": [
+          {
+            "startedAt": "2023-01-27T15:32:55+01:00",
+            "lastActivityAt": "2023-01-27T15:32:55+01:00",
+            "url": "https://www.salesviewer.com/de/testen-danke",
+            "referer": "https://www.salesviewer.com/de/testen",
+            "refererMedium": "internal"
+          }
+        ],
+        "interests": [
+          {
+            "name": "Testen Danke",
+            "count": 1,
+            "time": -1
+          }
+        ]
+      },
+      {
+        "guid": "fc42845f-4e75-4d8e-8b68-dad45a2b9fad",
+        "startedAt": "2023-01-27T15:31:56+01:00",
+        "lastActivityAt": "2023-01-27T15:31:56+01:00",
+        "language": "de",
+        "referer": false,
+        "campaign": false,
+        "campaignHits": false,
+        "hasVideo": "1",
+        "requiredVideoEvent": "1",
+        "score": "2",
+        "siteSearch": [],
+        "mainInterest": "none",
+        "campaignsAll": [],
+        "isVideoPresentable": "0",
+        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/109.0",
+        "company": {
+          "name": "Kellner KG",
+          "city": "Rheinfelden (Baden)",
+          "countryCode": "DE",
+          "countryCode3": "DEU",
+          "isCustomer": true,
+          "category": {
+            "id": "2",
+            "name": "Kunde",
+            "color": "#e42026",
+            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\"><path d=\"M0 0h24v24H0z\" fill=\"none\"/><path d=\"M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z\"/></svg>"
+          },
+          "note": null,
+          "sector": {
+            "name": "Energie & Umwelt",
+            "name_en": "Energy & Environment"
+          },
+          "employees": [],
+          "tags": [
+            {
+              "name": "odit"
+            }
+          ]
+        },
+        "visits": [
+          {
+            "startedAt": "2023-01-27T15:31:56+01:00",
+            "lastActivityAt": "2023-01-27T15:31:56+01:00",
+            "url": "https://www.salesviewer.com/de",
+            "events": [
+              {
+                "name": "dataNameClick",
+                "type": "dataNameClick",
+                "ts": "2023-01-27 15:31:56.957",
+                "display": null,
+                "url": null,
+                "downloadname": null
+              }
+            ]
+          }
+        ],
+        "interests": [],
+        "score_overview": [
+          {
+            "id": "97",
+            "url": "https://www.salesviewer.com/de/",
+            "value": "2",
+            "count": "1",
+            "summe": "2"
+          }
+        ]
+      },
+      {
+        "guid": "2fe6f800-9808-4ead-a3fb-60f094b0f49d",
+        "startedAt": "2023-01-26T12:29:36+01:00",
+        "lastActivityAt": "2023-01-26T12:34:14+01:00",
+        "language": "de-DE",
+        "referer": {
+          "referer_medium": "search",
+          "referer_source": "Google",
+          "referer_url": "https://www.google.com"
+        },
+        "campaign": false,
+        "campaignHits": false,
+        "hasVideo": "1",
+        "requiredVideoEvent": "1",
+        "score": "6",
+        "siteSearch": [],
+        "mainInterest": "Preise",
+        "campaignsAll": [],
+        "isVideoPresentable": "1",
+        "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+        "company": {
+          "name": "Giese Steinbach Stiftung & Co. KG",
+          "city": "Meiningen",
+          "countryCode": "DE",
+          "isCustomer": false,
+          "category": {
+            "id": "3",
+            "name": "Wettbewerber",
+            "color": "#000",
+            "icon": "<svg width=\"351px\" height=\"364px\" viewBox=\"0 0 351 364\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">    <g id=\"Page-1\" stroke=\"none\" stroke-width=\"1\">        <g id=\"ebook_landing_malicious-copy\" transform=\"translate(-475.000000, -224.000000)\">            <path d=\"M642.288864,413.089294 C568.623832,413.089294 487.962681,397.037784 480.143487,382.992712 C472.73583,368.546353 571.916124,348.883253 571.916124,348.883253 C595.785241,359.718022 641.877327,359.718022 641.877327,359.718022 C641.877327,359.718022 687.969414,359.718022 711.83853,348.883253 C711.83853,348.883253 811.43036,368.145065 804.022704,382.591425 C796.615047,397.037784 713.896213,413.089294 642.288864,413.089294 Z M704.017279,321.194799 C650.105999,338.048885 574.383285,321.194799 574.383285,321.194799 C574.383285,321.194799 588.787063,223.280586 603.606491,224.083161 C618.010269,224.885737 621.709982,246.153988 637.759905,246.153988 C653.809828,246.153988 669.45233,212.847104 679.740742,228.096039 C690.029154,243.344974 704.017279,321.194799 704.017279,321.194799 Z M573.973395,417.905149 C596.196365,424.72704 634.469259,422.720602 634.057722,423.121889 L649.696109,423.121889 L653.399937,423.121889 C663.276813,423.523177 691.672831,423.924465 709.780436,417.905149 C709.780436,417.905149 716.36502,447.600443 676.857517,448.403018 C676.857517,448.403018 661.630667,448.403018 653.811474,435.160522 C651.342255,431.147645 647.22689,428.739918 642.699989,428.739918 L641.053843,428.739918 C636.115405,428.739918 632.411576,431.147645 629.942358,435.160522 C622.123164,448.403018 606.896314,448.403018 606.896314,448.403018 C567.388811,447.600443 573.973395,417.905149 573.973395,417.905149 Z M527.882131,413.490983 L558.335832,417.905149 C558.335832,417.905149 576.007645,475.229994 638.149655,519.772935 L635.293155,549.928821 C635.293155,549.928821 557.512759,509.398757 532.820569,504.583304 L565.743488,476.894449 C565.743488,476.894449 503.601479,457.632637 480.143899,457.632637 L475.205461,457.632637 L527.882131,413.490983 Z M761.632388,413.090097 L825.420543,456.429175 C825.420543,456.429175 751.759627,465.658793 726.24025,481.309016 L765.336216,499.366965 C765.336216,499.366965 688.922435,512.646951 649.826468,588.08905 C649.826468,588.08905 624.183316,520.635216 722.536421,448.002132 C722.536421,448.002132 729.532542,428.339032 727.474859,417.504262 L761.632388,413.090097 Z\" id=\"Combined-Shape\"></path>        </g>    </g></svg>"
+          },
+          "note": "Ex qui dolorem eveniet veniam veniam et iure quibusdam. Eos dolor vel praesentium inventore qui. Quod aut officia maxime perspiciatis rerum eaque odio ut. Harum odit quia dolorem qui amet.",
+          "sector": {
+            "name": "Marketing & Werbung",
+            "name_en": "Marketing & Communications"
+          },
+          "employees": [],
+          "tags": []
+        },
+        "visits": [
+          {
+            "startedAt": "2023-01-26T12:29:36+01:00",
+            "lastActivityAt": "2023-01-26T12:31:33+01:00",
+            "url": "https://www.salesviewer.com/de",
+            "referer": "https://www.google.com",
+            "refererMedium": "search",
+            "refererSource": "Google",
+            "events": [
+              {
+                "name": "dataNameClick",
+                "type": "dataNameClick",
+                "ts": "2023-01-26 12:31:32.973",
+                "display": null,
+                "url": null,
+                "downloadname": null
+              }
+            ]
+          },
+          {
+            "startedAt": "2023-01-26T12:31:34+01:00",
+            "lastActivityAt": "2023-01-26T12:32:43+01:00",
+            "url": "https://www.salesviewer.com/de/preise",
+            "referer": "https://www.salesviewer.com/de",
+            "refererMedium": "internal"
+          },
+          {
+            "startedAt": "2023-01-26T12:32:44+01:00",
+            "lastActivityAt": "2023-01-26T12:32:45+01:00",
+            "url": "https://www.salesviewer.com/de/testen",
+            "referer": "https://www.salesviewer.com/de/preise",
+            "refererMedium": "internal"
+          },
+          {
+            "startedAt": "2023-01-26T12:32:46+01:00",
+            "lastActivityAt": "2023-01-26T12:34:14+01:00",
+            "url": "https://www.salesviewer.com/de/preise",
+            "referer": "https://www.salesviewer.com/de",
+            "refererMedium": "internal",
+            "events": [
+              {
+                "name": "dataNameClick",
+                "type": "dataNameClick",
+                "ts": "2023-01-26 12:33:04.020",
+                "display": null,
+                "url": null,
+                "downloadname": null
+              }
+            ]
+          }
+        ],
+        "interests": [
+          {
+            "name": "Preise",
+            "count": 2,
+            "time": 156
+          },
+          {
+            "name": "Testen",
+            "count": 1,
+            "time": 1
+          }
+        ],
+        "score_overview": [
+          {
+            "id": "97",
+            "url": "https://www.salesviewer.com/de/",
+            "value": "2",
+            "count": "1",
+            "summe": "2"
+          },
+          {
+            "id": "101",
+            "url": "https://www.salesviewer.com/de/preise",
+            "value": "2",
+            "count": "2",
+            "summe": "4"
+          }
+        ]
+      },
+      {
+        "guid": "e938302d-07da-40d9-a6a4-f1ae9e69dd50",
+        "startedAt": "2023-01-26T12:29:33+01:00",
+        "lastActivityAt": "2023-01-26T12:31:13+01:00",
+        "language": "de-DE",
+        "referer": {
+          "referer_medium": "search",
+          "referer_source": "Google",
+          "referer_url": "https://www.google.com"
+        },
+        "campaign": false,
+        "campaignHits": false,
+        "hasVideo": "1",
+        "requiredVideoEvent": "1",
+        "score": "2",
+        "siteSearch": [],
+        "mainInterest": "none",
+        "campaignsAll": [],
+        "isVideoPresentable": "1",
+        "user_agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 16_1_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.1 Mobile/15E148 Safari/604.1",
+        "company": {
+          "name": "Menzel Stiftung & Co. KG",
+          "city": "Altenburg",
+          "countryCode": "DE",
+          "isCustomer": false,
+          "category": null,
+          "note": null,
+          "sector": {
+            "name": "Architektur & Bauwesen",
+            "name_en": "Architecture & Building"
+          },
+          "employees": [],
+          "tags": []
+        },
+        "visits": [
+          {
+            "startedAt": "2023-01-26T12:29:33+01:00",
+            "lastActivityAt": "2023-01-26T12:31:13+01:00",
+            "url": "https://www.salesviewer.com/de",
+            "referer": "https://www.google.com",
+            "refererMedium": "search",
+            "refererSource": "Google"
+          }
+        ],
+        "interests": [],
+        "score_overview": [
+          {
+            "id": "97",
+            "url": "https://www.salesviewer.com/de/",
+            "value": "2",
+            "count": "1",
+            "summe": "2"
+          }
+        ]
+      },
+      {
+        "guid": "f6637c84-b8e0-4451-a565-8285b60f9028",
+        "startedAt": "2023-01-26T12:16:02+01:00",
+        "lastActivityAt": "2023-01-26T12:20:07+01:00",
+        "language": "de",
+        "referer": {
+          "referer_medium": "paid",
+          "referer_source": "Bing Ads",
+          "referer_term": "SalesViewer\u00ae",
+          "referer_device": "c",
+          "referer_network": "o",
+          "referer_url": "https://www.bing.com"
+        },
+        "campaign": false,
+        "campaignHits": false,
+        "hasVideo": "1",
+        "requiredVideoEvent": "1",
+        "score": "2",
+        "siteSearch": [],
+        "mainInterest": "none",
+        "campaignsAll": [],
+        "isVideoPresentable": "1",
+        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36 Edg/109.0.1518.61",
+        "company": {
+          "name": "Wegner AG & Co. KG",
+          "city": "Heidenheim an der Brenz",
+          "countryCode": "DE",
+          "isCustomer": false,
+          "category": {
+            "id": "1",
+            "name": "Favorit",
+            "color": "#f9bc15",
+            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\"><path d=\"M0 0h24v24H0z\" fill=\"none\"/><path d=\"M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z\"/><path d=\"M0 0h24v24H0z\" fill=\"none\"/></svg>"
+          },
+          "note": null,
+          "sector": {
+            "name": "Gro\u00dfhandel",
+            "name_en": "Wholesale"
+          },
+          "employees": [],
+          "tags": []
+        },
+        "visits": [
+          {
+            "startedAt": "2023-01-26T12:16:02+01:00",
+            "lastActivityAt": "2023-01-26T12:20:07+01:00",
+            "url": "https://www.salesviewer.com/de/?keyword=SalesViewer%C2%AE&device=c&network=o&msclkid=ed5ea86ad4171c6c6758cbb8b4fec8de",
+            "referer": "https://www.bing.com",
+            "refererMedium": "paid",
+            "refererSource": "Bing Ads",
+            "refererTerm": "SalesViewer\u00ae"
+          }
+        ],
+        "interests": [],
+        "score_overview": [
+          {
+            "id": "97",
+            "url": "https://www.salesviewer.com/de/",
+            "value": "2",
+            "count": "1",
+            "summe": "2"
+          }
+        ]
+      },
+      {
+        "guid": "44f2d4c3-fc56-4f46-b10d-11d66c5837f2",
+        "startedAt": "2023-01-26T12:14:37+01:00",
+        "lastActivityAt": "2023-01-26T12:14:41+01:00",
+        "language": "de-DE",
+        "referer": false,
+        "campaign": false,
+        "campaignHits": false,
+        "hasVideo": "1",
+        "requiredVideoEvent": "1",
+        "score": "2",
+        "siteSearch": [],
+        "mainInterest": "none",
+        "campaignsAll": [],
+        "isVideoPresentable": "1",
+        "user_agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 16_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.2 Mobile/15E148 Safari/604.1",
+        "company": {
+          "name": "Vetter",
+          "city": "Bad Soden am Taunus",
+          "countryCode": "AT",
+          "isCustomer": false,
+          "category": null,
+          "note": null,
+          "sector": {
+            "name": "Gro\u00dfhandel",
+            "name_en": "Wholesale"
+          },
+          "employees": [],
+          "tags": []
+        },
+        "visits": [
+          {
+            "startedAt": "2023-01-26T12:14:37+01:00",
+            "lastActivityAt": "2023-01-26T12:14:41+01:00",
+            "url": "https://www.salesviewer.com/de"
+          }
+        ],
+        "interests": [],
+        "score_overview": [
+          {
+            "id": "97",
+            "url": "https://www.salesviewer.com/de/",
+            "value": "2",
+            "count": "1",
+            "summe": "2"
+          }
+        ]
+      },
+      {
+        "guid": "1a0d5a81-13aa-4f52-aa15-5aab4993d674",
+        "startedAt": "2023-01-26T12:13:41+01:00",
+        "lastActivityAt": "2023-01-26T12:13:49+01:00",
+        "language": "de",
+        "referer": false,
+        "campaign": false,
+        "campaignHits": false,
+        "hasVideo": "1",
+        "requiredVideoEvent": "1",
+        "score": "4",
+        "siteSearch": [],
+        "mainInterest": "Preise",
+        "campaignsAll": [],
+        "isVideoPresentable": "1",
+        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/109.0",
+        "company": {
+          "name": "Fritz",
+          "city": "Hennigsdorf",
+          "countryCode": "DE",
+          "countryCode3": "DEU",
+          "isCustomer": false,
+          "category": null,
+          "note": null,
+          "sector": {
+            "name": "Metallindustrie/ -verarbeitung",
+            "name_en": "Metal and processing industry "
+          },
+          "employees": [],
+          "tags": []
+        },
+        "visits": [
+          {
+            "startedAt": "2023-01-26T12:13:41+01:00",
+            "lastActivityAt": "2023-01-26T12:13:43+01:00",
+            "url": "https://www.salesviewer.com/de",
+            "events": [
+              {
+                "name": "dataNameClick",
+                "type": "dataNameClick",
+                "ts": "2023-01-26 12:13:26.244",
+                "display": null,
+                "url": null,
+                "downloadname": null
+              }
+            ]
+          },
+          {
+            "startedAt": "2023-01-26T12:13:44+01:00",
+            "lastActivityAt": "2023-01-26T12:13:49+01:00",
+            "url": "https://www.salesviewer.com/de/preise",
+            "referer": "https://www.salesviewer.com/de",
+            "refererMedium": "internal",
+            "events": [
+              {
+                "name": "Data-name: Preise-Stage02-Mini-Pro",
+                "type": "dataNameClick",
+                "ts": "2023-01-26 12:13:29.106",
+                "display": "Preise-Stage02-Mini-Pro",
+                "url": null,
+                "downloadname": "Data-Name: Preise-Stage02-Mini-Pro"
+              }
+            ]
+          }
+        ],
+        "interests": [
+          {
+            "name": "Preise",
+            "count": 1,
+            "time": 5
+          }
+        ],
+        "score_overview": [
+          {
+            "id": "97",
+            "url": "https://www.salesviewer.com/de/",
+            "value": "2",
+            "count": "1",
+            "summe": "2"
+          },
+          {
+            "id": "101",
+            "url": "https://www.salesviewer.com/de/preise",
+            "value": "2",
+            "count": "1",
+            "summe": "2"
+          }
+        ]
+      },
+      {
+        "guid": "ad776d80-ad49-48e7-9a4f-207012153d8f",
+        "startedAt": "2023-01-26T12:06:49+01:00",
+        "lastActivityAt": "2023-01-26T12:06:52+01:00",
+        "language": "de",
+        "referer": false,
+        "campaign": false,
+        "campaignHits": false,
+        "hasVideo": "1",
+        "requiredVideoEvent": "1",
+        "score": "2",
+        "siteSearch": [],
+        "mainInterest": "none",
+        "campaignsAll": [],
+        "isVideoPresentable": "1",
+        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/109.0",
+        "company": {
+          "name": "F\u00f6rster",
+          "city": "Euskirchen",
+          "countryCode": "DE",
+          "countryCode3": "DEU",
+          "isCustomer": true,
+          "category": {
+            "id": "2",
+            "name": "Kunde",
+            "color": "#e42026",
+            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\"><path d=\"M0 0h24v24H0z\" fill=\"none\"/><path d=\"M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z\"/></svg>"
+          },
+          "note": null,
+          "sector": {
+            "name": "Energie & Umwelt",
+            "name_en": "Energy & Environment"
+          },
+          "employees": [],
+          "tags": [
+            {
+              "name": "fuga"
+            }
+          ]
+        },
+        "visits": [
+          {
+            "startedAt": "2023-01-26T12:06:49+01:00",
+            "lastActivityAt": "2023-01-26T12:06:52+01:00",
+            "url": "https://www.salesviewer.com/de",
+            "events": [
+              {
+                "name": "dataNameClick",
+                "type": "dataNameClick",
+                "ts": "2023-01-26 12:06:53.548",
+                "display": null,
+                "url": null,
+                "downloadname": null
+              }
+            ]
+          }
+        ],
+        "interests": [],
+        "score_overview": [
+          {
+            "id": "97",
+            "url": "https://www.salesviewer.com/de/",
+            "value": "2",
+            "count": "1",
+            "summe": "2"
+          }
+        ]
+      },
+      {
+        "guid": "91ac0ba8-5061-4759-966b-44be6e8ee13d",
+        "startedAt": "2023-01-26T12:03:38+01:00",
+        "lastActivityAt": "2023-01-26T12:03:45+01:00",
+        "language": "de",
+        "referer": false,
+        "campaign": false,
+        "campaignHits": false,
+        "hasVideo": "1",
+        "requiredVideoEvent": "1",
+        "score": "2",
+        "siteSearch": [],
+        "mainInterest": "none",
+        "campaignsAll": [],
+        "isVideoPresentable": "1",
+        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36 Edg/109.0.1518.55",
+        "company": {
+          "name": "Nolte",
+          "city": "D\u00fclmen",
+          "countryCode": "DE",
+          "isCustomer": false,
+          "category": {
+            "id": "4",
+            "name": "Tester",
+            "color": "#5390f4",
+            "icon": "<svg height=\"24px\" id=\"Layer_1\" style=\"enable-background:new 0 0 24 24;\" version=\"1.1\" viewBox=\"0 0 24 24\" width=\"24px\" xml:space=\"preserve\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"><path d=\"M20.3069458,6.4331665l-5.9567261,3.7229614C14.7510376,10.6661377,15,11.3009644,15,12c0,1.6568604-1.3431396,3-3,3  s-3-1.3431396-3-3s1.3431396-3,3-3c0.6990356,0,1.3338623,0.2489624,1.8438721,0.6497803l3.7229614-5.956665  C15.9754639,2.6245728,14.0609131,2,12,2C6.4771729,2,2,6.4771118,2,12c0,2.0889893,0.642395,4.0269775,1.737793,5.6311035L9,15  l-2.6311035,5.262207C7.9730225,21.357605,9.9110107,22,12,22c5.5228271,0,10-4.4771729,10-10  C22,9.9390869,21.3754883,8.0245361,20.3069458,6.4331665z\"/></svg>"
+          },
+          "note": "Minima culpa dolor commodi perferendis. Unde tempora vitae mollitia cumque maiores dolorem. Qui magnam voluptas animi est natus fugit exercitationem.",
+          "sector": {
+            "name": "Gesundheit & Fitness",
+            "name_en": "Health & Fitness"
+          },
+          "employees": [],
+          "tags": []
+        },
+        "visits": [
+          {
+            "startedAt": "2023-01-26T12:03:38+01:00",
+            "lastActivityAt": "2023-01-26T12:03:45+01:00",
+            "url": "https://www.salesviewer.com/de",
+            "events": [
+              {
+                "name": "dataNameClick",
+                "type": "dataNameClick",
+                "ts": "2023-01-26 12:03:44.947",
+                "display": null,
+                "url": null,
+                "downloadname": null
+              }
+            ]
+          }
+        ],
+        "interests": [],
+        "score_overview": [
+          {
+            "id": "97",
+            "url": "https://www.salesviewer.com/de/",
+            "value": "2",
+            "count": "1",
+            "summe": "2"
+          }
+        ]
+      },
+      {
+        "guid": "3997d155-8027-41cc-ac98-db710cc307d3",
+        "startedAt": "2023-01-26T12:03:07+01:00",
+        "lastActivityAt": "2023-01-26T12:04:26+01:00",
+        "language": "de-DE",
+        "referer": {
+          "referer_medium": "search",
+          "referer_source": "Google",
+          "referer_url": "https://www.google.com"
+        },
+        "campaign": false,
+        "campaignHits": false,
+        "hasVideo": "1",
+        "requiredVideoEvent": "1",
+        "score": "4",
+        "siteSearch": [],
+        "mainInterest": "Preise",
+        "campaignsAll": [],
+        "isVideoPresentable": null,
+        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+        "company": {
+          "name": "Kolb GmbH & Co. KGaA",
+          "city": "Bensheim",
+          "countryCode": "DE",
+          "countryCode3": "DEU",
+          "isCustomer": false,
+          "category": {
+            "id": "4",
+            "name": "Tester",
+            "color": "#5390f4",
+            "icon": "<svg height=\"24px\" id=\"Layer_1\" style=\"enable-background:new 0 0 24 24;\" version=\"1.1\" viewBox=\"0 0 24 24\" width=\"24px\" xml:space=\"preserve\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"><path d=\"M20.3069458,6.4331665l-5.9567261,3.7229614C14.7510376,10.6661377,15,11.3009644,15,12c0,1.6568604-1.3431396,3-3,3  s-3-1.3431396-3-3s1.3431396-3,3-3c0.6990356,0,1.3338623,0.2489624,1.8438721,0.6497803l3.7229614-5.956665  C15.9754639,2.6245728,14.0609131,2,12,2C6.4771729,2,2,6.4771118,2,12c0,2.0889893,0.642395,4.0269775,1.737793,5.6311035L9,15  l-2.6311035,5.262207C7.9730225,21.357605,9.9110107,22,12,22c5.5228271,0,10-4.4771729,10-10  C22,9.9390869,21.3754883,8.0245361,20.3069458,6.4331665z\"/></svg>"
+          },
+          "note": null,
+          "sector": {
+            "name": "Software",
+            "name_en": "Software"
+          },
+          "employees": [],
+          "tags": []
+        },
+        "visits": [
+          {
+            "startedAt": "2023-01-26T12:03:07+01:00",
+            "lastActivityAt": "2023-01-26T12:03:11+01:00",
+            "url": "https://www.salesviewer.com/de",
+            "referer": "https://www.google.com",
+            "refererMedium": "search",
+            "refererSource": "Google",
+            "events": [
+              {
+                "name": "dataNameClick",
+                "type": "dataNameClick",
+                "ts": "2023-01-26 12:03:11.270",
+                "display": null,
+                "url": null,
+                "downloadname": null
+              }
+            ]
+          },
+          {
+            "startedAt": "2023-01-26T12:03:11+01:00",
+            "lastActivityAt": "2023-01-26T12:04:09+01:00",
+            "url": "https://www.salesviewer.com/de/preise",
+            "referer": "https://www.salesviewer.com/de",
+            "refererMedium": "internal",
+            "events": [
+              {
+                "name": "Data-name: Preise-Stage02-Mini-Pro",
+                "type": "dataNameClick",
+                "ts": "2023-01-26 12:03:14.124",
+                "display": "Preise-Stage02-Mini-Pro",
+                "url": null,
+                "downloadname": "Data-Name: Preise-Stage02-Mini-Pro"
+              },
+              {
+                "name": "Data-name: StageXX-Footer-Link",
+                "type": "dataNameClick",
+                "ts": "2023-01-26 12:04:10.397",
+                "display": "StageXX-Footer-Link",
+                "url": null,
+                "downloadname": "Data-Name: StageXX-Footer-Link"
+              }
+            ]
+          },
+          {
+            "startedAt": "2023-01-26T12:04:10+01:00",
+            "lastActivityAt": "2023-01-26T12:04:15+01:00",
+            "url": "https://www.salesviewer.com/de/kunden",
+            "referer": "https://www.salesviewer.com/de/preise",
+            "refererMedium": "internal",
+            "events": [
+              {
+                "name": "Data-name: Customer-Quote-StepStone-Link",
+                "type": "dataNameClick",
+                "ts": "2023-01-26 12:04:16.775",
+                "display": "Customer-Quote-StepStone-Link",
+                "url": null,
+                "downloadname": "Data-Name: Customer-Quote-StepStone-Link"
+              }
+            ]
+          },
+          {
+            "startedAt": "2023-01-26T12:04:16+01:00",
+            "lastActivityAt": "2023-01-26T12:04:26+01:00",
+            "url": "https://www.salesviewer.com/de/kunden/casestudies/stepstone",
+            "referer": "https://www.salesviewer.com/de/kunden",
+            "refererMedium": "internal"
+          }
+        ],
+        "interests": [
+          {
+            "name": "Preise",
+            "count": 1,
+            "time": 57
+          },
+          {
+            "name": "Kunden",
+            "count": 1,
+            "time": 4
+          },
+          {
+            "name": "Case-Studies",
+            "count": 1,
+            "time": 9
+          }
+        ],
+        "score_overview": [
+          {
+            "id": "97",
+            "url": "https://www.salesviewer.com/de/",
+            "value": "2",
+            "count": "1",
+            "summe": "2"
+          },
+          {
+            "id": "101",
+            "url": "https://www.salesviewer.com/de/preise",
+            "value": "2",
+            "count": "1",
+            "summe": "2"
+          }
+        ]
+      },
+      {
+        "guid": "0cfe06ab-03e0-472b-acad-1f751d3b75ce",
+        "startedAt": "2023-01-26T11:50:37+01:00",
+        "lastActivityAt": "2023-01-26T11:51:05+01:00",
+        "language": "de-DE",
+        "referer": false,
+        "campaign": false,
+        "campaignHits": false,
+        "hasVideo": "1",
+        "requiredVideoEvent": "1",
+        "score": "2",
+        "siteSearch": [],
+        "mainInterest": "none",
+        "campaignsAll": [],
+        "isVideoPresentable": "1",
+        "user_agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 16_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.2 Mobile/15E148 Safari/604.1",
+        "company": {
+          "name": "Paul AG & Co. KG",
+          "city": "Senftenberg",
+          "countryCode": "AT",
+          "isCustomer": false,
+          "category": null,
+          "note": null,
+          "sector": {
+            "name": "Gro\u00dfhandel",
+            "name_en": "Wholesale"
+          },
+          "employees": [],
+          "tags": []
+        },
+        "visits": [
+          {
+            "startedAt": "2023-01-26T11:50:37+01:00",
+            "lastActivityAt": "2023-01-26T11:51:05+01:00",
+            "url": "https://www.salesviewer.com/de"
+          }
+        ],
+        "interests": [],
+        "score_overview": [
+          {
+            "id": "97",
+            "url": "https://www.salesviewer.com/de/",
+            "value": "2",
+            "count": "1",
+            "summe": "2"
+          }
+        ]
+      },
+      {
+        "guid": "663d1af0-ae8d-44a2-92ea-dcf6969a8d73",
+        "startedAt": "2023-01-26T11:50:30+01:00",
+        "lastActivityAt": "2023-01-26T11:51:36+01:00",
+        "language": "de-AT",
+        "referer": {
+          "referer_medium": "search",
+          "referer_source": "Google",
+          "referer_url": "https://www.google.com"
+        },
+        "campaign": false,
+        "campaignHits": false,
+        "hasVideo": "1",
+        "requiredVideoEvent": "1",
+        "score": "6",
+        "siteSearch": [],
+        "mainInterest": "Englisch",
+        "campaignsAll": [],
+        "isVideoPresentable": "1",
+        "user_agent": "Mozilla/5.0 (Linux; Android 13; SM-A528B) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Mobile Safari/537.36 EdgA/109.0.1518.53",
+        "company": {
+          "name": "Moser",
+          "city": "Waltrop",
+          "countryCode": "AT",
+          "isCustomer": false,
+          "category": null,
+          "note": null,
+          "sector": {
+            "name": "Gro\u00dfhandel",
+            "name_en": "Wholesale"
+          },
+          "employees": [],
+          "tags": []
+        },
+        "visits": [
+          {
+            "startedAt": "2023-01-26T11:50:30+01:00",
+            "lastActivityAt": "2023-01-26T11:50:56+01:00",
+            "url": "https://www.salesviewer.com/en/platform/data-protection",
+            "referer": "https://www.google.com",
+            "refererMedium": "search",
+            "refererSource": "Google",
+            "events": [
+              {
+                "name": "dataNameClick",
+                "type": "dataNameClick",
+                "ts": "2023-01-26 11:50:54.536",
+                "display": null,
+                "url": null,
+                "downloadname": null
+              },
+              {
+                "name": "dataNameClick",
+                "type": "dataNameClick",
+                "ts": "2023-01-26 11:50:55.006",
+                "display": null,
+                "url": null,
+                "downloadname": null
+              },
+              {
+                "name": "dataNameClick",
+                "type": "dataNameClick",
+                "ts": "2023-01-26 11:50:55.781",
+                "display": null,
+                "url": null,
+                "downloadname": null
+              }
+            ]
+          },
+          {
+            "startedAt": "2023-01-26T11:50:57+01:00",
+            "lastActivityAt": "2023-01-26T11:51:22+01:00",
+            "url": "https://www.salesviewer.com/en/pricing",
+            "referer": "https://www.salesviewer.com/en/platform/data-protection",
+            "refererMedium": "internal",
+            "events": [
+              {
+                "name": "Data-name: Pricing-Stage02-Mini-Individual",
+                "type": "dataNameClick",
+                "ts": "2023-01-26 11:51:06.831",
+                "display": "Pricing-Stage02-Mini-Individual",
+                "url": null,
+                "downloadname": "Data-Name: Pricing-Stage02-Mini-Individual"
+              },
+              {
+                "name": "Form interaction",
+                "type": "formInteraction",
+                "ts": "2023-01-26 11:51:08.321",
+                "display": null,
+                "url": null,
+                "downloadname": "Formularinteraktion"
+              }
+            ]
+          },
+          {
+            "startedAt": "2023-01-26T11:51:23+01:00",
+            "lastActivityAt": "2023-01-26T11:51:28+01:00",
+            "url": "https://www.salesviewer.com/en/features",
+            "referer": "https://www.salesviewer.com/en/pricing",
+            "refererMedium": "internal",
+            "events": [
+              {
+                "name": "dataNameClick",
+                "type": "dataNameClick",
+                "ts": "2023-01-26 11:51:27.804",
+                "display": null,
+                "url": null,
+                "downloadname": null
+              }
+            ]
+          },
+          {
+            "startedAt": "2023-01-26T11:51:28+01:00",
+            "lastActivityAt": "2023-01-26T11:53:08+01:00",
+            "url": "https://www.salesviewer.com/en/pricing",
+            "referer": "https://www.salesviewer.com/en/features",
+            "refererMedium": "internal"
+          },
+          {
+            "startedAt": "2023-01-26T11:51:34+01:00",
+            "lastActivityAt": "2023-01-26T11:51:36+01:00",
+            "url": "https://www.salesviewer.com/en/free-trial",
+            "referer": "https://www.salesviewer.com/en/pricing",
+            "refererMedium": "internal"
+          }
+        ],
+        "interests": [
+          {
+            "name": "Englisch",
+            "count": 5,
+            "time": 155
+          }
+        ],
+        "score_overview": [
+          {
+            "id": "100",
+            "url": "https://www.salesviewer.com/en/features",
+            "value": "2",
+            "count": "1",
+            "summe": "2"
+          },
+          {
+            "id": "102",
+            "url": "https://www.salesviewer.com/en/pricing",
+            "value": "2",
+            "count": "2",
+            "summe": "4"
+          }
+        ]
+      },
+
+      {
         "guid": "d91ca657-3e79-41f1-ade6-d631890e26bf",
         "startedAt": "2023-01-28T11:00:24+01:00",
         "lastActivityAt": "2023-01-28T11:02:39+01:00",

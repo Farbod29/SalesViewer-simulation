@@ -1,8 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import sessionData from '../sessionData.json'; // Import your JSON data
+import ButtonClassic from './iconComponents/buttonClassic';
 
 const SessionTable = () => {
-  const [hoveredSession, setHoveredSession] = useState(null);
+  const [hoveredPages, setHoveredPages] = useState(null);
+  const [sortBy, setSortBy] = useState(null);
+  const [sortOrder, setSortOrder] = useState('asc'); // 'asc' or 'desc'
+
+  const tableRef = useRef(null);
+  const theadRef = useRef(null);
 
   const calculateTimeSpent = (visit) => {
     const startTime = new Date(visit.startedAt).getTime();
@@ -17,28 +23,111 @@ const SessionTable = () => {
     );
   };
 
+  const handleHeaderClick = (column) => {
+    if (sortBy === column) {
+      setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc'); // Toggle sort order
+    } else {
+      setSortBy(column);
+      setSortOrder('asc'); // Default to ascending order
+    }
+  };
+
+  const handleHeaderClickTime = (column) => {
+    if (sortBy === column) {
+      setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc'); // Toggle sort order
+    } else {
+      setSortBy(column);
+      setSortOrder('asc'); // Default to ascending order
+    }
+  };
+
+  const sortData = (data) => {
+    if (sortBy === 'Date') {
+      return data.sort((a, b) => {
+        const dateA = new Date(a.startedAt).getTime();
+        const dateB = new Date(b.startedAt).getTime();
+        return sortOrder === 'asc' ? dateA - dateB : dateB - dateA;
+      });
+    } else if (sortBy === 'Duration') {
+      return data.sort((a, b) => {
+        const durationA = calculateTotalTime(a.visits);
+        const durationB = calculateTotalTime(b.visits);
+        return sortOrder === 'asc'
+          ? durationA - durationB
+          : durationB - durationA;
+      });
+    } else {
+      return data; // Default: return unsorted data
+    }
+  };
+
+  const sortedData = sortData([...sessionData[0].result]); // Sort the data based on current state
+
   return (
-    <div className="overflow-x-auto shadow-sm rounded-lg">
+    <div className="shadow-sm rounded-lg relative w-full" ref={tableRef}>
+      {/* Sticky header */}
       <table className="min-w-full table-auto border-collapse border border-gray-300">
-        <thead className="bg-gray-50 text-left">
-          <tr className="border-b space-x-2 border-gray-300">
-            <th className="p-4 font-semibold ">Date</th>
-            <th className="p-4 font-semibold">Company</th>
-            <th className="p-4 font-semibold">City</th>
-            <th className="p-4 font-semibold">Pages</th>
-            <th className="p-4 font-semibold">Duration</th>
-            <th className="p-4 font-semibold">Interest</th>
-            <th className="p-4 font-semibold">Source</th>
-            <th className="p-4 font-semibold">More</th>
+        <thead
+          className="bg-gray-50 text-left sticky top-0 z-10"
+          ref={theadRef}
+        >
+          <tr className="border-b border-gray-300">
+            <th
+              className="p-4 pb-6 font-semibold cursor-pointer"
+              onClick={() => handleHeaderClickTime('Date')}
+            >
+              Date {sortBy === 'Date' && (sortOrder === 'asc' ? '↑' : '↓')}
+            </th>
+            <th
+              className="p-4 font-semibold cursor-pointer"
+              onClick={() => handleHeaderClick('Company')}
+            >
+              Company
+            </th>
+            <th
+              className="p-4 font-semibold cursor-pointer"
+              onClick={() => handleHeaderClick('City')}
+            >
+              City
+            </th>
+            <th
+              className="p-4 font-semibold cursor-pointer"
+              onClick={() => handleHeaderClick('Pages')}
+            >
+              Pages
+            </th>
+            <th
+              className="p-4 font-semibold cursor-pointer"
+              onClick={() => handleHeaderClickTime('Duration')}
+            >
+              Duration{' '}
+              {sortBy === 'Duration' && (sortOrder === 'asc' ? '↑' : '↓')}
+            </th>
+            <th
+              className="p-4 font-semibold cursor-pointer"
+              onClick={() => handleHeaderClick('Interest')}
+            >
+              Interest
+            </th>
+            <th
+              className="p-4 font-semibold cursor-pointer"
+              onClick={() => handleHeaderClick('Source')}
+            >
+              Source
+            </th>
+            <th
+              className="p-4 font-semibold cursor-pointer"
+              onClick={() => handleHeaderClick('More')}
+            >
+              More
+            </th>
           </tr>
         </thead>
         <tbody className="bg-white divide-y divide-gray-300">
-          {sessionData[0].result.map((session, index) => (
+          {sortedData.map((session, index) => (
             <tr
               key={index}
-              onMouseEnter={() => setHoveredSession(index)}
-              onMouseLeave={() => setHoveredSession(null)}
-              className="hover:bg-gray-200 transition-colors"
+              className="hover:bg-gray-100 transition-colors relative"
             >
               {/* Date */}
               <td className="p-4 whitespace-nowrap text-sm text-gray-700">
@@ -47,7 +136,24 @@ const SessionTable = () => {
 
               {/* Company Name */}
               <td className="p-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                {session.company.name}
+                <div className="flex items-center">
+                  {session.company.category && session.company.category.icon ? (
+                    <span
+                      className="mr-2 inline-block"
+                      dangerouslySetInnerHTML={{
+                        __html: session.company.category.icon.replace(
+                          '<svg',
+                          '<svg style="max-width: 15px; height: auto;"'
+                        ),
+                      }}
+                    />
+                  ) : (
+                    <span className="mr-2" style={{ fontSize: '10px' }}>
+                      🏢
+                    </span>
+                  )}
+                  {session.company.name || 'Unknown Company'}
+                </div>
               </td>
 
               {/* City */}
@@ -56,8 +162,49 @@ const SessionTable = () => {
               </td>
 
               {/* Pages */}
-              <td className="p-4 whitespace-nowrap text-sm text-gray-700">
-                {session.visits.length}
+              <td
+                className="p-4 whitespace-nowrap text-sm text-gray-700 relative"
+                onMouseEnter={() => setHoveredPages(index)}
+                onMouseLeave={() => setHoveredPages(null)}
+              >
+                <span
+                  className={`p-1 rounded ${
+                    hoveredPages === index ? 'bg-gray-100' : ''
+                  }`}
+                >
+                  {session.visits.length}
+                </span>
+                {/* Hover pop-up showing the visited pages */}
+                {hoveredPages === index && (
+                  <div className="absolute z-20 bg-white shadow-lg p-4 border rounded-lg mt-2 left-0">
+                    <p className="font-bold text-gray-900 mb-2">
+                      Visited Pages
+                    </p>
+                    <ul className="text-gray-600">
+                      {session.visits.map((visit, i) => (
+                        <li key={i} className="py-1">
+                          <div className="flex justify-between">
+                            <a
+                              href={visit.url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-blue-600 hover:underline"
+                            >
+                              {visit.url}
+                            </a>
+                            <span className="ml-4">
+                              {calculateTimeSpent(visit)} seconds
+                            </span>
+                          </div>
+                        </li>
+                      ))}
+                    </ul>
+                    <p className="font-bold mt-2">
+                      Total Time:{' '}
+                      {Math.floor(calculateTotalTime(session.visits) / 60)} min
+                    </p>
+                  </div>
+                )}
               </td>
 
               {/* Duration */}
@@ -79,50 +226,12 @@ const SessionTable = () => {
 
               {/* More Options (e.g., Icons for Interest) */}
               <td className="p-4 whitespace-nowrap text-sm text-gray-700 flex items-center space-x-2">
-                <button className="text-gray-400 hover:text-gray-800">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="16"
-                    height="16"
-                    fill="currentColor"
-                    className="bi bi-three-dots"
-                    viewBox="0 0 16 16"
-                  >
-                    <path d="M3 9.5A1.5 1.5 0 1 1 3 6.5a1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z" />
-                  </svg>
-                </button>
+                <ButtonClassic />
               </td>
             </tr>
           ))}
         </tbody>
       </table>
-
-      {/* Hover effect to show visited pages */}
-      {hoveredSession !== null && (
-        <div className="absolute bg-white shadow-lg p-4 border rounded-lg mt-2">
-          <p className="font-bold text-gray-900 mb-2">Visited Pages</p>
-          <ul className="text-gray-600">
-            {sessionData[0].result[hoveredSession].visits.map((visit, i) => (
-              <li key={i} className="py-1 px-24 ">
-                <div className="flex justify-between">
-                  <span>{visit.url}</span>
-                  <span className="ml-16">
-                    {calculateTimeSpent(visit)} seconds
-                  </span>
-                </div>
-              </li>
-            ))}
-          </ul>
-          <div className="mt-2 font-bold text-gray-900">
-            Total Session Time:{' '}
-            {Math.floor(
-              calculateTotalTime(sessionData[0].result[hoveredSession].visits) /
-                60
-            )}{' '}
-            min
-          </div>
-        </div>
-      )}
     </div>
   );
 };

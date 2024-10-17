@@ -10,9 +10,9 @@ const Home = () => {
       <VerticalSidebar className="w-1/4" />
 
       {/* Main content with flexible width */}
-      <div className="flex flex-col flex-grow">
+      <div className="flex flex-col flex-grow h-screen">
         <Header className="w-full" />
-        <div className="flex-grow overflow-auto p-6">
+        <div className="flex-grow z-50 p-6 overflow-auto">
           <SessionTable />
         </div>
       </div>
