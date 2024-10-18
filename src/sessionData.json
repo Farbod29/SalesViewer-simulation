@@ -1680,6 +1680,152 @@
             "summe": "2"
           }
         ]
+      },
+
+      {
+        "guid": "d91ca657-3e79-41f1-ade6-d631890e26bf",
+        "startedAt": "2023-01-28T11:00:24+01:00",
+        "lastActivityAt": "2023-01-28T11:02:39+01:00",
+        "language": "de-DE",
+        "referer": {
+          "referer_medium": "search",
+          "referer_source": "Google",
+          "referer_url": "https://www.google.com"
+        },
+        "campaign": false,
+        "campaignHits": false,
+        "hasVideo": "1",
+        "requiredVideoEvent": "1",
+        "score": "6",
+        "siteSearch": [],
+        "mainInterest": "Preise",
+        "campaignsAll": [],
+        "isVideoPresentable": "1",
+        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36",
+        "company": {
+          "name": "Peter",
+          "city": "Haltern am See",
+          "countryCode": "DE",
+          "countryCode3": "DEU",
+          "isCustomer": false,
+          "category": {
+            "id": "1",
+            "name": "Favorit",
+            "color": "#f9bc15",
+            "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\"><path d=\"M0 0h24v24H0z\" fill=\"none\"/><path d=\"M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z\"/><path d=\"M0 0h24v24H0z\" fill=\"none\"/></svg>"
+          },
+          "note": null,
+          "sector": {
+            "name": "Veranstaltungsdienstleistungen",
+            "name_en": "Event"
+          },
+          "employees": [],
+          "tags": []
+        },
+        "visits": [
+          {
+            "startedAt": "2023-01-28T11:00:24+01:00",
+            "lastActivityAt": "2023-01-28T11:00:33+01:00",
+            "url": "https://www.salesviewer.com/de",
+            "referer": "https://www.google.com",
+            "refererMedium": "search",
+            "refererSource": "Google",
+            "events": [
+              {
+                "name": "Form interaction",
+                "type": "formInteraction",
+                "ts": "2023-01-28 11:00:26.153",
+                "display": null,
+                "url": null,
+                "downloadname": "Formularinteraktion"
+              },
+              {
+                "name": "Data-name: Domainlog-DE-Button",
+                "type": "dataNameClick",
+                "ts": "2023-01-28 11:00:29.806",
+                "display": "Domainlog-DE-Button",
+                "url": null,
+                "downloadname": "Data-Name: Domainlog-DE-Button"
+              },
+              {
+                "name": "Form interaction",
+                "type": "formInteraction",
+                "ts": "2023-01-28 11:00:29.808",
+                "display": null,
+                "url": null,
+                "downloadname": "Formularinteraktion"
+              },
+              {
+                "name": "Form submit",
+                "type": "formSubmit",
+                "ts": "2023-01-28 11:00:29.889",
+                "display": null,
+                "url": null,
+                "downloadname": "Formular abgeschickt"
+              }
+            ]
+          },
+          {
+            "startedAt": "2023-01-28T11:00:33+01:00",
+            "lastActivityAt": "2023-01-28T11:00:37+01:00",
+            "url": "https://www.salesviewer.com/de/testen/?websiteentry=d&websiteurl=https%3A%2F%2Fwww.chrisfengler.de",
+            "referer": "https://www.salesviewer.com/de",
+            "refererMedium": "internal"
+          },
+          {
+            "startedAt": "2023-01-28T11:00:39+01:00",
+            "lastActivityAt": "2023-01-28T11:02:31+01:00",
+            "url": "https://www.salesviewer.com/de",
+            "referer": "https://www.google.com",
+            "refererMedium": "search",
+            "refererSource": "Google",
+            "events": [
+              {
+                "name": "dataNameClick",
+                "type": "dataNameClick",
+                "ts": "2023-01-28 11:02:32.535",
+                "display": null,
+                "url": null,
+                "downloadname": null
+              }
+            ]
+          },
+          {
+            "startedAt": "2023-01-28T11:02:33+01:00",
+            "lastActivityAt": "2023-01-28T11:02:39+01:00",
+            "url": "https://www.salesviewer.com/de/preise",
+            "referer": "https://www.salesviewer.com/de",
+            "refererMedium": "internal"
+          }
+        ],
+        "interests": [
+          {
+            "name": "Preise",
+            "count": 1,
+            "time": 5
+          },
+          {
+            "name": "Testen",
+            "count": 1,
+            "time": 3
+          }
+        ],
+        "score_overview": [
+          {
+            "id": "97",
+            "url": "https://www.salesviewer.com/de/",
+            "value": "2",
+            "count": "2",
+            "summe": "4"
+          },
+          {
+            "id": "101",
+            "url": "https://www.salesviewer.com/de/preise",
+            "value": "2",
+            "count": "1",
+            "summe": "2"
+          }
+        ]
       }
     ]
   }
