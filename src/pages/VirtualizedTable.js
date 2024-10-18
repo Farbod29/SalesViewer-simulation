@@ -1,7 +1,6 @@
-// VirtualizedTable.js
 import React, { useState, useEffect } from 'react';
 import { FixedSizeList as List } from 'react-window';
-import sortWithWorker from '../utils/array';
+import sessionDataOrginal from '../data/sessionDataOrginal.json';
 
 const columns = ['ID', 'Name', 'Age', 'City', 'Duration']; // Example columns
 
@@ -12,43 +11,24 @@ const VirtualizedTable = () => {
   const [sortOrder, setSortOrder] = useState('asc'); // 'asc' or 'desc'
 
   // Function to load the data from the JSON file
-  const loadData = async () => {
-    try {
-      const response = await fetch('/sessionDataOrginal.json'); // Fetch the data
-      const jsonData = await response.json();
+  useEffect(() => {
+    const sessionData = sessionDataOrginal[0].result.map((session, index) => {
+      const startedAt = new Date(session.startedAt).getTime();
+      const lastActivityAt = new Date(session.lastActivityAt).getTime();
+      const duration = lastActivityAt - startedAt; // Duration in milliseconds
 
-      // Validate the structure and extract the 'result' array
-      if (
-        !jsonData[0] ||
-        !jsonData[0].result ||
-        !Array.isArray(jsonData[0].result)
-      ) {
-        console.error('Invalid data format:', jsonData);
-        return;
-      }
-
-      // Map and extract the necessary fields
-      const sessionData = jsonData[0].result.map((session, index) => ({
+      return {
         id: index + 1,
         date: new Date(session.startedAt).toLocaleString('de-DE'),
         companyName: session.company?.name || 'Unknown',
         city: session.company?.city || 'Unknown',
-        duration:
-          new Date(session.lastActivityAt).getTime() -
-          new Date(session.startedAt).getTime(), // Duration in milliseconds
+        duration: isNaN(duration) ? 0 : duration, // Prevent NaN values
         interest: session.mainInterest || 'No interest',
-      }));
+      };
+    });
 
-      setData(sessionData); // Set the original data
-      setSortedData(sessionData); // Initially set sorted data as the same
-    } catch (error) {
-      console.error('Failed to load the session data:', error);
-    }
-  };
-
-  // Load data on component mount
-  useEffect(() => {
-    loadData();
+    setData(sessionData);
+    setSortedData(sessionData);
   }, []);
 
   // Function to handle sorting based on a column
