@@ -1,64 +1,43 @@
 import React, { useState, useEffect } from 'react';
-import { FixedSizeList as List } from 'react-window';
 import sessionDataOrginal from '../data/sessionDataOrginal.json';
-import { FaYoutube, FaEllipsisV } from 'react-icons/fa'; // Add icons
-
-// Define columns in the order required
-const columns = [
-  'Date',
-  'Company',
-  'Branch',
-  'City',
-  'Pages',
-  'Duration',
-  'Source',
-  'Interest',
-  'More',
-];
+import { FaEllipsisV, FaYoutube } from 'react-icons/fa';
 
 const VirtualizedTable = () => {
-  const [data, setData] = useState([]);
-  const [sortedData, setSortedData] = useState([]); // State to store sorted data
-  const [sortBy, setSortBy] = useState(null); // For sorting criteria
-  const [sortOrder, setSortOrder] = useState('asc'); // 'asc' or 'desc' sorting order
+  const [sortedData, setSortedData] = useState([]);
+  const [sortBy, setSortBy] = useState(null);
+  const [sortOrder, setSortOrder] = useState('asc');
 
-  // Load and process the data on component mount
   useEffect(() => {
     const sessionData = sessionDataOrginal[0].result.map((session, index) => {
       const startedAt = new Date(session.startedAt).getTime();
       const lastActivityAt = new Date(session.lastActivityAt).getTime();
-      const duration = lastActivityAt - startedAt; // Duration in milliseconds
+      const duration = lastActivityAt - startedAt;
 
       return {
         id: index + 1,
         date: new Date(session.startedAt).toLocaleString('de-DE'),
         companyName: session.company?.name || 'Unknown',
-        companyLogo: session.company?.category?.icon || null, // Company logo
-        branch: session.company?.sector?.name || 'N/A',
         city: session.company?.city || 'Unknown',
-        pages: session.visits.length || 0,
-        duration: isNaN(duration) ? 0 : duration, // Prevent NaN values
-        hasVideo: session.hasVideo === '1', // Determine if session has a video
-        source: session.referer?.referer_url || 'Direct',
+        branch: session.company?.sector?.name || 'Unknown',
+        pages: session.visits.length,
+        duration: isNaN(duration) ? 0 : duration,
+        source: session.referer?.referer_url || 'N/A',
         interest: session.mainInterest || 'No interest',
+        logo: session.company?.category?.icon || null,
       };
     });
-
-    setData(sessionData);
     setSortedData(sessionData);
   }, []);
 
-  // Sorting function
   const handleSort = (column) => {
     let sortedArray = [...sortedData];
     if (sortBy === column) {
-      setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc'); // Toggle sort order
+      setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc');
     } else {
       setSortBy(column);
-      setSortOrder('asc'); // Default to ascending order
+      setSortOrder('asc');
     }
 
-    // Sorting logic
     sortedArray.sort((a, b) => {
       if (a[column] < b[column]) return sortOrder === 'asc' ? -1 : 1;
       if (a[column] > b[column]) return sortOrder === 'asc' ? 1 : -1;
@@ -69,103 +48,123 @@ const VirtualizedTable = () => {
   };
 
   return (
-    <div className="table-container shadow-sm rounded-lg p-4 bg-white">
-      {/* Sorting Buttons */}
-      <div className="sort-buttons flex space-x-4 mb-4">
-        {columns.map((col) => (
-          <button
-            key={col}
-            className="px-4 py-2 bg-gray-200 rounded-md hover:bg-blue-500 hover:text-white transition"
-            onClick={() => handleSort(col.toLowerCase())}
-          >
-            Sort by {col}{' '}
-            {sortBy === col.toLowerCase() && (sortOrder === 'asc' ? '↑' : '↓')}
-          </button>
-        ))}
+    <div className="container mx-auto p-8 text-left mb-10 ">
+      {/* Filters */}
+      <table className="min-w-full table-auto text-left text-xs mb-10"></table>
+
+      {/* Table Layout */}
+      <div className="overflow-x-auto">
+        <table className="min-w-full table-auto -collapse-gray-200 text-xs text-left">
+          <thead className="bg-gray-50 text-left">
+            <tr>
+              <th
+                onClick={() => handleSort('date')}
+                className="p-2 cursor-pointer text-left"
+              >
+                Date {sortBy === 'date' && (sortOrder === 'asc' ? '↑' : '↓')}
+              </th>
+              <th
+                onClick={() => handleSort('companyName')}
+                className="p-2 cursor-pointer text-left"
+              >
+                Company{' '}
+                {sortBy === 'companyName' && (sortOrder === 'asc' ? '↑' : '↓')}
+              </th>
+              <th
+                onClick={() => handleSort('branch')}
+                className="p-2 cursor-pointer text-left mr-12 pl-14"
+              >
+                Branch{' '}
+                {sortBy === 'branch' && (sortOrder === 'asc' ? '↑' : '↓')}
+              </th>
+              <th
+                onClick={() => handleSort('city')}
+                className="p-2 cursor-pointer text-left pl-10"
+              >
+                City {sortBy === 'city' && (sortOrder === 'asc' ? '↑' : '↓')}
+              </th>
+              <th
+                onClick={() => handleSort('pages')}
+                className="pr-8  cursor-pointer text-left"
+              >
+                Pages {sortBy === 'pages' && (sortOrder === 'asc' ? '↑' : '↓')}
+              </th>
+              <th
+                onClick={() => handleSort('duration')}
+                className="p-2 cursor-pointer text-left"
+              >
+                Duration{' '}
+                {sortBy === 'duration' && (sortOrder === 'asc' ? '↑' : '↓')}
+              </th>
+              <th
+                onClick={() => handleSort('source')}
+                className="p-2 cursor-pointer text-left"
+              >
+                Source{' '}
+                {sortBy === 'source' && (sortOrder === 'asc' ? '↑' : '↓')}
+              </th>
+
+              <th
+                onClick={() => handleSort('interest')}
+                className="p-2 cursor-pointer text-left"
+              >
+                Interest{' '}
+                {sortBy === 'interest' && (sortOrder === 'asc' ? '↑' : '↓')}
+              </th>
+            </tr>
+          </thead>
+          <span className="pt-2 text-white"> " "</span>
+          <tbody>
+            {sortedData.map((session) => (
+              <React.Fragment key={session.id}>
+                <tr>
+                  <td colSpan="9" className="h-1">
+                    <div className="text-white pt-1">.</div>
+                  </td>
+                </tr>
+                <tr
+                  className="hover:bg-gray-100 my-6 p-4 border rounded-lg" // Adds margin and border for spacing
+                >
+                  <td className="p-2 text-left">{session.date}</td>
+                  <td className="p-2 text-left">
+                    <div className="flex items-center space-x-2">
+                      {session.logo ? (
+                        <span
+                          dangerouslySetInnerHTML={{
+                            __html: session.logo.replace(
+                              '<svg',
+                              '<svg class="w-3 h-3"'
+                            ),
+                          }}
+                        />
+                      ) : (
+                        <span className="w-3 h-3 bg-gray-200 rounded-full"></span>
+                      )}
+                      <span>{session.companyName}</span>
+                    </div>
+                  </td>
+                  <td className="p-2 text-left">{session.branch}</td>
+                  <td className="p-2 text-left">{session.city}</td>
+                  <td className="p-2 text-center pr-8">{session.pages}</td>
+                  <td className="p-2 pr-12">
+                    <div className=" items-center">
+                      <FaYoutube className="mr-22 text-gray-400" />
+                      <span>{Math.floor(session.duration / 1000)} sec</span>
+                    </div>
+                  </td>
+                  <td className="p-2 text-blue-600 truncate ml-7 text-left">
+                    {session.source}
+                  </td>
+                  <td className="p-2 text-left">{session.interest}</td>
+                  <td className="p-2 text-left">
+                    <FaEllipsisV className="text-gray-500 cursor-pointer" />
+                  </td>
+                </tr>
+              </React.Fragment>
+            ))}
+          </tbody>
+        </table>
       </div>
-
-      {/* Header */}
-      <div className="table-header grid grid-cols-9 font-bold bg-gray-50 sticky top-0 z-10">
-        {columns.map((col) => (
-          <div key={col} className="table-cell p-2 border text-center">
-            {col}
-          </div>
-        ))}
-      </div>
-
-      {/* Body */}
-      <List
-        height={400} // Height of the visible area
-        itemCount={sortedData.length} // Number of rows
-        itemSize={50} // Row height
-        width="100%" // Full width
-        itemData={sortedData} // Pass sorted data to the list
-      >
-        {({ index, style }) => {
-          const row = sortedData[index];
-          return (
-            <div
-              className="table-row grid grid-cols-9 items-center hover:bg-gray-100 transition-colors"
-              style={style}
-            >
-              {/* Date */}
-              <div className="table-cell p-2 border text-center">
-                {row.date}
-              </div>
-
-              {/* Company with Logo */}
-              <div className="table-cell p-2 border flex items-center space-x-2">
-                {row.companyLogo ? (
-                  <div
-                    className="inline-block"
-                    dangerouslySetInnerHTML={{ __html: row.companyLogo }}
-                    style={{ maxWidth: '20px' }}
-                  />
-                ) : (
-                  <span className="inline-block bg-gray-300 w-6 h-6 rounded-full" />
-                )}
-                <span>{row.companyName}</span>
-              </div>
-
-              {/* Branch */}
-              <div className="table-cell p-2 border text-center">
-                {row.branch}
-              </div>
-
-              {/* City */}
-              <div className="table-cell p-2 border text-center">
-                {row.city}
-              </div>
-
-              {/* Pages */}
-              <div className="table-cell p-2 border text-center">
-                {row.pages}
-              </div>
-
-              {/* Duration with YouTube icon if has video */}
-              <div className="table-cell p-2 border text-center flex items-center justify-center space-x-2">
-                {row.hasVideo && <FaYoutube className="text-red-600" />}
-                <span>{Math.floor(row.duration / 1000)} sec</span>
-              </div>
-
-              {/* Source */}
-              <div className="table-cell p-2 border text-center">
-                {row.source}
-              </div>
-
-              {/* Interest */}
-              <div className="table-cell p-2 border text-center">
-                {row.interest}
-              </div>
-
-              {/* More (three dots icon) */}
-              <div className="table-cell p-2 border text-center">
-                <FaEllipsisV className="cursor-pointer" />
-              </div>
-            </div>
-          );
-        }}
-      </List>
     </div>
   );
 };

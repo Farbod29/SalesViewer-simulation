@@ -28,7 +28,6 @@ import VirtualizedTable from './VirtualizedTable';
 const App = () => {
   return (
     <div>
-      <h1>Virtualized Table with 1000 Rows</h1>
       <VirtualizedTable />
     </div>
   );
