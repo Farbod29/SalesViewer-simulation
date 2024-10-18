@@ -36,3 +36,27 @@
     transform: rotate(360deg);
   }
 }
+
+.table-container {
+  width: 100%;
+  border: 1px solid #ddd;
+}
+
+.table-header {
+  display: flex;
+  background-color: #f1f1f1;
+  padding: 10px 0;
+  font-weight: bold;
+}
+
+.table-row {
+  display: flex;
+  padding: 10px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.table-cell {
+  flex: 1;
+  text-align: left;
+  padding: 0 10px;
+}
