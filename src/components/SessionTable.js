@@ -1,6 +1,18 @@
 import React, { useState, useRef } from 'react';
+import { format } from 'date-fns';
 import sessionData from '../sessionData.json'; // Import your JSON data
 import ButtonClassic from './iconComponents/buttonClassic';
+
+const groupByDate = (sessions) => {
+  return sessions.reduce((acc, session) => {
+    const date = format(new Date(session.startedAt), 'yyyy-MM-dd'); // Format date as yyyy-MM-dd
+    if (!acc[date]) {
+      acc[date] = [];
+    }
+    acc[date].push(session);
+    return acc;
+  }, {});
+};
 
 const SessionTable = () => {
   const [hoveredPages, setHoveredPages] = useState(null);
@@ -32,11 +44,19 @@ const SessionTable = () => {
     }
   };
 
-  const handleHeaderClickTime = (column) => {
-    if (sortBy === column) {
-      setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc'); // Toggle sort order
+  const handleHeaderClickTime = () => {
+    if (sortBy === 'Date') {
+      // Cycle through sorting modes: ascending -> descending -> reset to default
+      if (sortOrder === 'asc') {
+        setSortOrder('desc');
+      } else if (sortOrder === 'desc') {
+        setSortBy(null); // Reset to no sorting
+        setSortOrder('asc');
+      } else {
+        setSortOrder('asc'); // Default to ascending order
+      }
     } else {
-      setSortBy(column);
+      setSortBy('Date');
       setSortOrder('asc'); // Default to ascending order
     }
   };
@@ -139,7 +159,7 @@ const SessionTable = () => {
 
   const sortedData = sortData([...sessionData[0].result]); // Sort the data based on current state
   const groupedSessions = groupByCompany(sortedData);
-
+  const groupedByDateSessions = groupByDate(sortedData);
   return (
     <div className="shadow-sm rounded-lg relative w-full" ref={tableRef}>
       {/* Sticky header */}
@@ -176,7 +196,7 @@ const SessionTable = () => {
             </th>
             <th
               className="p-4 font-semibold cursor-pointer"
-              onClick={() => handleHeaderClickTime('Duration')}
+              onClick={() => handleHeaderClick('Duration')}
             >
               Duration{' '}
               {sortBy === 'Duration' && (sortOrder === 'asc' ? '↑' : '↓')}
@@ -203,7 +223,38 @@ const SessionTable = () => {
           </tr>
         </thead>
         <tbody className="bg-white divide-y divide-gray-300">
-          {sortBy === 'Company'
+          {sortBy === 'Date'
+            ? Object.entries(groupByDate(sortedData)).map(
+                ([date, sessions]) => (
+                  <React.Fragment key={date}>
+                    {/* Display date header */}
+                    <tr className="bg-gray-200">
+                      <td colSpan={8} className="p-4 font-bold text-gray-700">
+                        {date}
+                      </td>
+                    </tr>
+                    {/* Display sessions under each date */}
+                    {sessions.map((session, index) => (
+                      <tr
+                        key={index}
+                        className="hover:bg-gray-100 transition-colors relative"
+                      >
+                        <td className="p-4 whitespace-nowrap text-sm text-gray-700">
+                          {new Date(session.startedAt).toLocaleString('de-DE')}
+                        </td>
+                        <td className="p-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                          {session.company.name || 'Unknown Company'}
+                        </td>
+                        <td className="p-4 whitespace-nowrap text-sm text-gray-700">
+                          {session.company.city}
+                        </td>
+                        {/* other columns */}
+                      </tr>
+                    ))}
+                  </React.Fragment>
+                )
+              )
+            : sortBy === 'Company'
             ? Object.entries(groupedSessions).map(
                 ([companyName, sessions], index) => (
                   <React.Fragment key={companyName}>
