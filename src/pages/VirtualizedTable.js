@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import sessionDataOrginal from '../data/sessionDataOrginal.json';
 import { FaEllipsisV, FaYoutube } from 'react-icons/fa';
+import ReactDOM from 'react-dom';
 
 const VirtualizedTable = () => {
   const [sortedData, setSortedData] = useState([]);
   const [sortBy, setSortBy] = useState(null);
   const [sortOrder, setSortOrder] = useState('asc');
   const [hoveredRow, setHoveredRow] = useState(null);
+  const [activePopup, setActivePopup] = useState(null);
 
   useEffect(() => {
     const sessionData = sessionDataOrginal[0].result.map((session, index) => {
@@ -204,8 +206,50 @@ const VirtualizedTable = () => {
                     {session.source}
                   </td>
                   <td className="p-2 text-left">{session.interest}</td>
-                  <td className="p-2 text-left">
-                    <FaEllipsisV className="text-gray-500 cursor-pointer" />
+                  <td className="p-2 text-left relative">
+                    <FaEllipsisV
+                      className="text-gray-500 cursor-pointer z-50"
+                      onClick={() =>
+                        setActivePopup(activePopup === index ? null : index)
+                      }
+                    />
+                    {activePopup === index && (
+                      <div className="absolute z-50 bg-white shadow-lg p-4 border rounded-lg mt-2 right-0 w-64 ">
+                        <div className="font-bold text-gray-900 mb-2">More</div>
+                        <ul className="text-gray-700">
+                          <li className="py-1 cursor-pointer hover:bg-gray-100 flex items-center space-x-2">
+                            <span className="material-icons text-gray-400">
+                              badge
+                            </span>
+                            <span>SalesViewer® IDcard</span>
+                          </li>
+                          <li className="py-1 cursor-pointer hover:bg-gray-100 flex items-center space-x-2">
+                            <span className="material-icons text-gray-400">
+                              person_add
+                            </span>
+                            <span>Assign employee</span>
+                          </li>
+                          <li className="py-1 cursor-pointer hover:bg-gray-100 flex items-center space-x-2">
+                            <span className="material-icons text-gray-400">
+                              visibility_off
+                            </span>
+                            <span>Hide company</span>
+                          </li>
+                          <li className="py-1 cursor-pointer hover:bg-gray-100 flex items-center space-x-2">
+                            <span className="material-icons text-gray-400">
+                              edit
+                            </span>
+                            <span>Unternehmen bearbeiten</span>
+                          </li>
+                          <li className="py-1 cursor-pointer hover:bg-gray-100 flex items-center space-x-2">
+                            <span className="material-icons text-gray-400">
+                              delete
+                            </span>
+                            <span>Session löschen</span>
+                          </li>
+                        </ul>
+                      </div>
+                    )}
                   </td>
                 </tr>
               </React.Fragment>
