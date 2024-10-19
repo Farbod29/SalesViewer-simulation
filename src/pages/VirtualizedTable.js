@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import sessionDataOrginal from '../data/sessionDataOrginal.json';
 import { FaEllipsisV, FaYoutube } from 'react-icons/fa';
 import ReactDOM from 'react-dom';
@@ -11,6 +11,7 @@ const VirtualizedTable = () => {
   const [activePopup, setActivePopup] = useState(null);
   const [groupedData, setGroupedData] = useState({});
   const popupRef = useRef(null); // Define popupRef
+
   useEffect(() => {
     // Sort the data
     const sortedData = sessionDataOrginal[0].result
@@ -35,9 +36,22 @@ const VirtualizedTable = () => {
       })
       .sort((a, b) => {
         if (sortBy) {
-          return sortOrder === 'asc'
-            ? a[sortBy].localeCompare(b[sortBy])
-            : b[sortBy].localeCompare(a[sortBy]);
+          const aValue = a[sortBy];
+          const bValue = b[sortBy];
+
+          if (typeof aValue === 'string' && typeof bValue === 'string') {
+            return sortOrder === 'asc'
+              ? aValue.localeCompare(bValue)
+              : bValue.localeCompare(aValue);
+          } else {
+            return sortOrder === 'asc'
+              ? aValue > bValue
+                ? 1
+                : -1
+              : bValue > aValue
+              ? 1
+              : -1;
+          }
         }
         return 0;
       });
@@ -54,25 +68,19 @@ const VirtualizedTable = () => {
 
     setSortedData(sortedData); // Update sorted data state
     setGroupedData(groupedData); // Update grouped data state
-  }, [sortBy, sortOrder]);
+  }, [sortBy, sortOrder, sessionDataOrginal]);
 
-  const handleSort = (column) => {
-    let sortedArray = [...sortedData];
-    if (sortBy === column) {
-      setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc');
-    } else {
-      setSortBy(column);
-      setSortOrder('asc');
-    }
-
-    sortedArray.sort((a, b) => {
-      if (a[column] < b[column]) return sortOrder === 'asc' ? -1 : 1;
-      if (a[column] > b[column]) return sortOrder === 'asc' ? 1 : -1;
-      return 0;
-    });
-
-    setSortedData(sortedArray);
-  };
+  const handleSort = useCallback(
+    (column) => {
+      if (sortBy === column) {
+        setSortOrder((prevOrder) => (prevOrder === 'asc' ? 'desc' : 'asc'));
+      } else {
+        setSortBy(column);
+        setSortOrder('asc');
+      }
+    },
+    [sortBy]
+  );
 
   useEffect(() => {
     // Function to close popup when clicked outside
