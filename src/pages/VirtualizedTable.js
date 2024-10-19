@@ -6,6 +6,7 @@ const VirtualizedTable = () => {
   const [sortedData, setSortedData] = useState([]);
   const [sortBy, setSortBy] = useState(null);
   const [sortOrder, setSortOrder] = useState('asc');
+  const [hoveredRow, setHoveredRow] = useState(null);
 
   useEffect(() => {
     const sessionData = sessionDataOrginal[0].result.map((session, index) => {
@@ -19,11 +20,12 @@ const VirtualizedTable = () => {
         companyName: session.company?.name || 'Unknown',
         city: session.company?.city || 'Unknown',
         branch: session.company?.sector?.name || 'Unknown',
-        pages: session.visits.length,
+        pages: session.visits?.length || 0, // Ensure `visits` is an array
         duration: isNaN(duration) ? 0 : duration,
         source: session.referer?.referer_url || 'N/A',
         interest: session.mainInterest || 'No interest',
         logo: session.company?.category?.icon || null,
+        visits: session.visits || [], // Ensure visits is at least an empty array
       };
     });
     setSortedData(sessionData);
@@ -79,19 +81,19 @@ const VirtualizedTable = () => {
               </th>
               <th
                 onClick={() => handleSort('city')}
-                className="p-2 cursor-pointer text-left pl-10"
+                className="p-2 pl-12 cursor-pointer text-left"
               >
                 City {sortBy === 'city' && (sortOrder === 'asc' ? '↑' : '↓')}
               </th>
               <th
                 onClick={() => handleSort('pages')}
-                className="pr-8  cursor-pointer text-left"
+                className="pr-8 cursor-pointer text-left"
               >
                 Pages {sortBy === 'pages' && (sortOrder === 'asc' ? '↑' : '↓')}
               </th>
               <th
                 onClick={() => handleSort('duration')}
-                className="p-2 cursor-pointer text-left"
+                className="p-3 pl-8 cursor-pointer text-left ml-12"
               >
                 Duration{' '}
                 {sortBy === 'duration' && (sortOrder === 'asc' ? '↑' : '↓')}
@@ -115,16 +117,14 @@ const VirtualizedTable = () => {
           </thead>
           <span className="pt-2 text-white"> " "</span>
           <tbody>
-            {sortedData.map((session) => (
+            {sortedData.map((session, index) => (
               <React.Fragment key={session.id}>
                 <tr>
                   <td colSpan="9" className="h-1">
                     <div className="text-white pt-1">.</div>
                   </td>
                 </tr>
-                <tr
-                  className="hover:bg-gray-100 my-6 p-4 border rounded-lg" // Adds margin and border for spacing
-                >
+                <tr className="hover:bg-gray-100 my-6 p-4 border rounded-lg">
                   <td className="p-2 text-left">{session.date}</td>
                   <td className="p-2 text-left">
                     <div className="flex items-center space-x-2">
@@ -145,10 +145,58 @@ const VirtualizedTable = () => {
                   </td>
                   <td className="p-2 text-left">{session.branch}</td>
                   <td className="p-2 text-left">{session.city}</td>
-                  <td className="p-2 text-center pr-8">{session.pages}</td>
+
+                  <td
+                    className="p-2 text-center relative"
+                    onMouseEnter={() => setHoveredRow(index)}
+                    onMouseLeave={() => setHoveredRow(null)}
+                  >
+                    <span
+                      className={`p-1 rounded ${
+                        hoveredRow === index ? 'bg-gray-100' : ''
+                      }`}
+                    >
+                      {session.pages}
+                    </span>
+                    {hoveredRow === index && (
+                      <div className="absolute z-20 bg-white shadow-lg p-4 border rounded-lg mt-2 left-0 text-left min-w-96">
+                        <p className="font-bold text-gray-900 mb-2 text-left">
+                          Visited Pages
+                        </p>
+                        <ul className="text-gray-600">
+                          {session.visits?.map((visit, i) => (
+                            <li key={i} className="py-1">
+                              <div className="flex justify-between text-left">
+                                <a
+                                  href={visit.url}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="text-blue-600 hover:underline"
+                                >
+                                  {visit.url}
+                                </a>
+                                <span className="ml-4">
+                                  {Math.floor(
+                                    (new Date(visit.lastActivityAt).getTime() -
+                                      new Date(visit.startedAt).getTime()) /
+                                      1000
+                                  )}{' '}
+                                  sec
+                                </span>
+                              </div>
+                            </li>
+                          ))}
+                        </ul>
+                        <p className="font-bold mt-2">
+                          Total Time: {Math.floor(session.duration / 1000)} sec
+                        </p>
+                      </div>
+                    )}
+                  </td>
+
                   <td className="p-2 pr-12">
-                    <div className=" items-center">
-                      <FaYoutube className="mr-22 text-gray-400" />
+                    <div className="flex items-center ml-8 mr-8">
+                      <FaYoutube className="mr-2 text-gray-400" />
                       <span>{Math.floor(session.duration / 1000)} sec</span>
                     </div>
                   </td>
