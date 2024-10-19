@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import sessionDataOrginal from '../data/sessionDataOrginal.json';
 import { FaEllipsisV, FaYoutube } from 'react-icons/fa';
 import ReactDOM from 'react-dom';
@@ -9,29 +9,52 @@ const VirtualizedTable = () => {
   const [sortOrder, setSortOrder] = useState('asc');
   const [hoveredRow, setHoveredRow] = useState(null);
   const [activePopup, setActivePopup] = useState(null);
-
+  const [groupedData, setGroupedData] = useState({});
+  const popupRef = useRef(null); // Define popupRef
   useEffect(() => {
-    const sessionData = sessionDataOrginal[0].result.map((session, index) => {
-      const startedAt = new Date(session.startedAt).getTime();
-      const lastActivityAt = new Date(session.lastActivityAt).getTime();
-      const duration = lastActivityAt - startedAt;
+    // Sort the data
+    const sortedData = sessionDataOrginal[0].result
+      .map((session, index) => {
+        const startedAt = new Date(session.startedAt).getTime();
+        const lastActivityAt = new Date(session.lastActivityAt).getTime();
+        const duration = lastActivityAt - startedAt;
 
-      return {
-        id: index + 1,
-        date: new Date(session.startedAt).toLocaleString('de-DE'),
-        companyName: session.company?.name || 'Unknown',
-        city: session.company?.city || 'Unknown',
-        branch: session.company?.sector?.name || 'Unknown',
-        pages: session.visits?.length || 0, // Ensure `visits` is an array
-        duration: isNaN(duration) ? 0 : duration,
-        source: session.referer?.referer_url || 'N/A',
-        interest: session.mainInterest || 'No interest',
-        logo: session.company?.category?.icon || null,
-        visits: session.visits || [], // Ensure visits is at least an empty array
-      };
-    });
-    setSortedData(sessionData);
-  }, []);
+        return {
+          id: index + 1,
+          date: new Date(session.startedAt).toLocaleString('de-DE'),
+          companyName: session.company?.name || 'Unknown',
+          city: session.company?.city || 'Unknown',
+          branch: session.company?.sector?.name || 'Unknown',
+          pages: session.visits?.length || 0,
+          duration: isNaN(duration) ? 0 : duration,
+          source: session.referer?.referer_url || 'N/A',
+          interest: session.mainInterest || 'No interest',
+          logo: session.company?.category?.icon || null,
+          visits: session.visits || [],
+        };
+      })
+      .sort((a, b) => {
+        if (sortBy) {
+          return sortOrder === 'asc'
+            ? a[sortBy].localeCompare(b[sortBy])
+            : b[sortBy].localeCompare(a[sortBy]);
+        }
+        return 0;
+      });
+
+    // Group data by date
+    const groupedData = sortedData.reduce((acc, session) => {
+      const date = new Date(session.date).toLocaleDateString('de-DE');
+      if (!acc[date]) {
+        acc[date] = [];
+      }
+      acc[date].push(session);
+      return acc;
+    }, {});
+
+    setSortedData(sortedData); // Update sorted data state
+    setGroupedData(groupedData); // Update grouped data state
+  }, [sortBy, sortOrder]);
 
   const handleSort = (column) => {
     let sortedArray = [...sortedData];
@@ -50,6 +73,23 @@ const VirtualizedTable = () => {
 
     setSortedData(sortedArray);
   };
+
+  useEffect(() => {
+    // Function to close popup when clicked outside
+    const handleClickOutside = (event) => {
+      if (popupRef.current && !popupRef.current.contains(event.target)) {
+        setActivePopup(null); // Close the popup
+      }
+    };
+
+    // Add event listener for clicks
+    document.addEventListener('mousedown', handleClickOutside);
+
+    // Cleanup the event listener on component unmount
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [popupRef]);
 
   return (
     <div className="container mx-auto p-8 text-left mb-10 ">
@@ -119,141 +159,198 @@ const VirtualizedTable = () => {
           </thead>
           <span className="pt-2 text-white"> " "</span>
           <tbody>
-            {sortedData.map((session, index) => (
-              <React.Fragment key={session.id}>
-                <tr>
-                  <td colSpan="9" className="h-1">
-                    <div className="text-white pt-1">.</div>
-                  </td>
-                </tr>
-                <tr className="hover:bg-gray-100 my-6 p-4 border rounded-lg">
-                  <td className="p-2 text-left">{session.date}</td>
-                  <td className="p-2 text-left">
-                    <div className="flex items-center space-x-2">
-                      {session.logo ? (
+            {sortBy === 'date'
+              ? // If sorting by date, group the sessions by date
+                Object.entries(
+                  sortedData.reduce((acc, session) => {
+                    const date = session.date;
+                    if (!acc[date]) {
+                      acc[date] = [];
+                    }
+                    acc[date].push(session);
+                    return acc;
+                  }, {})
+                ).map(([date, sessions]) => (
+                  <React.Fragment key={date}>
+                    {/* Render the group header with the date */}
+                    <tr className="bg-gray-50">
+                      <td colSpan="9" className="p-2 font-bold">
+                        {date}
+                      </td>
+                    </tr>
+
+                    {/* Render each session under this date */}
+                    {sessions.map((session) => (
+                      <tr
+                        key={session.id}
+                        className="hover:bg-gray-100 my-6 p-4 border rounded-lg"
+                      >
+                        {/* Date column is not needed here since it's shown as the group header */}
+                        <td className="p-2 text-left">{/* Empty */}</td>
+                        <td className="p-2 text-left">{session.companyName}</td>
+                        <td className="p-2 text-left">{session.branch}</td>
+                        <td className="p-2 text-left">{session.city}</td>
+                        <td className="p-2 text-left">{session.pages}</td>
+                        <td className="p-2 text-left">{session.duration}</td>
+                        <td className="p-2 text-left">{session.source}</td>
+                        <td className="p-2 text-left">{session.interest}</td>
+                      </tr>
+                    ))}
+                  </React.Fragment>
+                ))
+              : // Otherwise, show sessions without grouping
+                sortedData.map((session, index) => (
+                  <React.Fragment key={session.id}>
+                    <tr>
+                      <td colSpan="9" className="h-1">
+                        <div className="text-white pt-1">.</div>
+                      </td>
+                    </tr>
+                    <tr className="hover:bg-gray-100 my-6 p-4 border rounded-lg">
+                      <td className="p-2 text-left">{session.date}</td>
+                      <td className="p-2 text-left">
+                        <div className="flex items-center space-x-2">
+                          {session.logo ? (
+                            <span
+                              dangerouslySetInnerHTML={{
+                                __html: session.logo.replace(
+                                  '<svg',
+                                  '<svg class="w-3 h-3"'
+                                ),
+                              }}
+                            />
+                          ) : (
+                            <span className="w-3 h-3 bg-gray-200 rounded-full"></span>
+                          )}
+                          <span>{session.companyName}</span>
+                        </div>
+                      </td>
+                      <td className="p-2 text-left">{session.branch}</td>
+                      <td className="p-2 text-left">{session.city}</td>
+
+                      <td
+                        className="p-2 text-center relative"
+                        onMouseEnter={() => setHoveredRow(index)}
+                        onMouseLeave={() => setHoveredRow(null)}
+                      >
                         <span
-                          dangerouslySetInnerHTML={{
-                            __html: session.logo.replace(
-                              '<svg',
-                              '<svg class="w-3 h-3"'
-                            ),
-                          }}
+                          className={`p-1 rounded ${
+                            hoveredRow === index ? 'bg-gray-100' : ''
+                          }`}
+                        >
+                          {session.pages}
+                        </span>
+                        {hoveredRow === index && (
+                          <div className="absolute z-20 bg-white shadow-lg p-4 border rounded-lg mt-2 left-0 text-left min-w-96">
+                            <p className="font-bold text-gray-900 mb-2 text-left">
+                              Visited Pages
+                            </p>
+                            <ul className="text-gray-600">
+                              {session.visits?.map((visit, i) => (
+                                <li key={i} className="py-1">
+                                  <div className="flex justify-between text-left">
+                                    <a
+                                      href={visit.url}
+                                      target="_blank"
+                                      rel="noopener noreferrer"
+                                      className="text-blue-600 hover:underline"
+                                    >
+                                      {visit.url}
+                                    </a>
+                                    <span className="ml-4">
+                                      {Math.floor(
+                                        (new Date(
+                                          visit.lastActivityAt
+                                        ).getTime() -
+                                          new Date(visit.startedAt).getTime()) /
+                                          1000
+                                      )}{' '}
+                                      sec
+                                    </span>
+                                  </div>
+                                </li>
+                              ))}
+                            </ul>
+                            <p className="font-bold mt-2">
+                              Total Time: {Math.floor(session.duration / 1000)}{' '}
+                              sec
+                            </p>
+                          </div>
+                        )}
+                      </td>
+
+                      <td className="p-2 pr-12">
+                        <div className="flex items-center ml-8 mr-8">
+                          <FaYoutube className="mr-2 text-gray-400" />
+                          <span>{Math.floor(session.duration / 1000)} sec</span>
+                        </div>
+                      </td>
+                      <td className="p-2 text-blue-600 truncate ml-7 text-left">
+                        {session.source}
+                      </td>
+                      <td className="p-2 text-left">{session.interest}</td>
+                      <td className="p-2 text-left relative">
+                        <FaEllipsisV
+                          className="text-gray-500 cursor-pointer z-50"
+                          onClick={() =>
+                            setActivePopup(activePopup === index ? null : index)
+                          }
                         />
-                      ) : (
-                        <span className="w-3 h-3 bg-gray-200 rounded-full"></span>
-                      )}
-                      <span>{session.companyName}</span>
-                    </div>
-                  </td>
-                  <td className="p-2 text-left">{session.branch}</td>
-                  <td className="p-2 text-left">{session.city}</td>
-
-                  <td
-                    className="p-2 text-center relative"
-                    onMouseEnter={() => setHoveredRow(index)}
-                    onMouseLeave={() => setHoveredRow(null)}
-                  >
-                    <span
-                      className={`p-1 rounded ${
-                        hoveredRow === index ? 'bg-gray-100' : ''
-                      }`}
-                    >
-                      {session.pages}
-                    </span>
-                    {hoveredRow === index && (
-                      <div className="absolute z-20 bg-white shadow-lg p-4 border rounded-lg mt-2 left-0 text-left min-w-96">
-                        <p className="font-bold text-gray-900 mb-2 text-left">
-                          Visited Pages
-                        </p>
-                        <ul className="text-gray-600">
-                          {session.visits?.map((visit, i) => (
-                            <li key={i} className="py-1">
-                              <div className="flex justify-between text-left">
-                                <a
-                                  href={visit.url}
-                                  target="_blank"
-                                  rel="noopener noreferrer"
-                                  className="text-blue-600 hover:underline"
-                                >
-                                  {visit.url}
-                                </a>
-                                <span className="ml-4">
-                                  {Math.floor(
-                                    (new Date(visit.lastActivityAt).getTime() -
-                                      new Date(visit.startedAt).getTime()) /
-                                      1000
-                                  )}{' '}
-                                  sec
-                                </span>
+                        {activePopup === index && (
+                          <div
+                            className="absolute z-50 bg-white shadow-lg p-4 border rounded-lg mt-2 right-0 w-64 "
+                            ref={popupRef}
+                          >
+                            <div className="flex justify-between items-center mb-2">
+                              <div className="font-bold text-gray-900">
+                                More
                               </div>
-                            </li>
-                          ))}
-                        </ul>
-                        <p className="font-bold mt-2">
-                          Total Time: {Math.floor(session.duration / 1000)} sec
-                        </p>
-                      </div>
-                    )}
-                  </td>
-
-                  <td className="p-2 pr-12">
-                    <div className="flex items-center ml-8 mr-8">
-                      <FaYoutube className="mr-2 text-gray-400" />
-                      <span>{Math.floor(session.duration / 1000)} sec</span>
-                    </div>
-                  </td>
-                  <td className="p-2 text-blue-600 truncate ml-7 text-left">
-                    {session.source}
-                  </td>
-                  <td className="p-2 text-left">{session.interest}</td>
-                  <td className="p-2 text-left relative">
-                    <FaEllipsisV
-                      className="text-gray-500 cursor-pointer z-50"
-                      onClick={() =>
-                        setActivePopup(activePopup === index ? null : index)
-                      }
-                    />
-                    {activePopup === index && (
-                      <div className="absolute z-50 bg-white shadow-lg p-4 border rounded-lg mt-2 right-0 w-64 ">
-                        <div className="font-bold text-gray-900 mb-2">More</div>
-                        <ul className="text-gray-700">
-                          <li className="py-1 cursor-pointer hover:bg-gray-100 flex items-center space-x-2">
-                            <span className="material-icons text-gray-400">
-                              badge
-                            </span>
-                            <span>SalesViewer® IDcard</span>
-                          </li>
-                          <li className="py-1 cursor-pointer hover:bg-gray-100 flex items-center space-x-2">
-                            <span className="material-icons text-gray-400">
-                              person_add
-                            </span>
-                            <span>Assign employee</span>
-                          </li>
-                          <li className="py-1 cursor-pointer hover:bg-gray-100 flex items-center space-x-2">
-                            <span className="material-icons text-gray-400">
-                              visibility_off
-                            </span>
-                            <span>Hide company</span>
-                          </li>
-                          <li className="py-1 cursor-pointer hover:bg-gray-100 flex items-center space-x-2">
-                            <span className="material-icons text-gray-400">
-                              edit
-                            </span>
-                            <span>Unternehmen bearbeiten</span>
-                          </li>
-                          <li className="py-1 cursor-pointer hover:bg-gray-100 flex items-center space-x-2">
-                            <span className="material-icons text-gray-400">
-                              delete
-                            </span>
-                            <span>Session löschen</span>
-                          </li>
-                        </ul>
-                      </div>
-                    )}
-                  </td>
-                </tr>
-              </React.Fragment>
-            ))}
+                              <button
+                                className="text-gray-500"
+                                onClick={() => setActivePopup(null)}
+                              >
+                                ✕
+                              </button>{' '}
+                              {/* Close Button */}
+                            </div>
+                            <ul className="text-gray-700">
+                              <li className="py-1 cursor-pointer hover:bg-gray-100 flex items-center space-x-2">
+                                <span className="material-icons text-gray-400">
+                                  badge
+                                </span>
+                                <span>SalesViewer® IDcard</span>
+                              </li>
+                              <li className="py-1 cursor-pointer hover:bg-gray-100 flex items-center space-x-2">
+                                <span className="material-icons text-gray-400">
+                                  person_add
+                                </span>
+                                <span>Assign employee</span>
+                              </li>
+                              <li className="py-1 cursor-pointer hover:bg-gray-100 flex items-center space-x-2">
+                                <span className="material-icons text-gray-400">
+                                  visibility_off
+                                </span>
+                                <span>Hide company</span>
+                              </li>
+                              <li className="py-1 cursor-pointer hover:bg-gray-100 flex items-center space-x-2">
+                                <span className="material-icons text-gray-400">
+                                  edit
+                                </span>
+                                <span>Unternehmen bearbeiten</span>
+                              </li>
+                              <li className="py-1 cursor-pointer hover:bg-gray-100 flex items-center space-x-2">
+                                <span className="material-icons text-gray-400">
+                                  delete
+                                </span>
+                                <span>Session löschen</span>
+                              </li>
+                            </ul>
+                          </div>
+                        )}
+                      </td>
+                    </tr>
+                  </React.Fragment>
+                ))}
           </tbody>
         </table>
       </div>
