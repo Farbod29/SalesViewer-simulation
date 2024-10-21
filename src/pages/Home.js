@@ -21,16 +21,3 @@ const Home = () => {
 };
 
 export default Home;
-
-// import React from 'react';
-// import VirtualizedTable from './VirtualizedTable';
-
-// const App = () => {
-//   return (
-//     <div>
-//       <VirtualizedTable />
-//     </div>
-//   );
-// };
-
-// export default App;

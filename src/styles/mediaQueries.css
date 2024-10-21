@@ -1,0 +1,44 @@
+/* Very large screens - up to 1680px, show all columns */
+@media (max-width: 1680px) {
+  .branch-column {
+    display: none !important;
+  }
+}
+
+/* Below 1440px, hide city column */
+@media (max-width: 1440px) {
+  .city-column {
+    display: none;
+  }
+}
+
+/* Below 1200px, hide interest column */
+@media (max-width: 1200px) {
+  .interest-column {
+    display: none;
+  }
+}
+
+/* Below 991px, only show date, company, duration, and more */
+@media (max-width: 991px) {
+  .branch-column,
+  .city-column,
+  .pages-column,
+  .interest-column,
+  .source-column {   
+    display: none;
+  }
+}
+
+/* Below 790px, only show company name and more */
+@media (max-width: 790px) {
+  .branch-column,
+  .city-column,
+  .pages-column,
+  .interest-column,
+  .source-column,
+  .duration-column,
+  .date-column {  
+    display: none;
+  }
+}

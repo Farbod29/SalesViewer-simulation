@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
+import '../styles/mediaQueries.css';
 import sessionDataOrginal from '../data/sessionDataOrginal.json';
 import { FaEllipsisV, FaYoutube } from 'react-icons/fa';
 
@@ -8,7 +9,6 @@ const SessionTable = () => {
   const [sortOrder, setSortOrder] = useState('asc');
   const [hoveredRow, setHoveredRow] = useState(null);
   const [activePopup, setActivePopup] = useState(null);
-  const [groupedData, setGroupedData] = useState({});
   const popupRef = useRef(null); // Define popupRef
 
   useEffect(() => {
@@ -66,7 +66,6 @@ const SessionTable = () => {
     }, {});
 
     setSortedData(sortedData); // Update sorted data state
-    setGroupedData(groupedData); // Update grouped data state
   }, [sortBy, sortOrder, sessionDataOrginal]);
 
   const handleSort = useCallback(
@@ -110,58 +109,58 @@ const SessionTable = () => {
             <tr>
               <th
                 onClick={() => handleSort('date')}
-                className="p-2 cursor-pointer text-left"
+                className="p-2 cursor-pointer text-left date-column"
               >
                 Date {sortBy === 'date' && (sortOrder === 'asc' ? '↑' : '↓')}
               </th>
               <th
                 onClick={() => handleSort('companyName')}
-                className="p-2 cursor-pointer text-left"
+                className="p-2 cursor-pointer text-left company-column"
               >
                 Company{' '}
                 {sortBy === 'companyName' && (sortOrder === 'asc' ? '↑' : '↓')}
               </th>
               <th
                 onClick={() => handleSort('branch')}
-                className="p-2 cursor-pointer text-left mr-12 pl-14"
+                className="p-2 cursor-pointer text-left branch-column"
               >
                 Branch{' '}
                 {sortBy === 'branch' && (sortOrder === 'asc' ? '↑' : '↓')}
               </th>
               <th
                 onClick={() => handleSort('city')}
-                className="p-2 pl-12 cursor-pointer text-left"
+                className="p-2 cursor-pointer text-left city-column"
               >
                 City {sortBy === 'city' && (sortOrder === 'asc' ? '↑' : '↓')}
               </th>
               <th
                 onClick={() => handleSort('pages')}
-                className="pr-8 cursor-pointer text-left"
+                className="p-2 cursor-pointer text-left pages-column"
               >
                 Pages {sortBy === 'pages' && (sortOrder === 'asc' ? '↑' : '↓')}
               </th>
               <th
                 onClick={() => handleSort('duration')}
-                className="p-3 pl-8 cursor-pointer text-left ml-12"
+                className="p-2 cursor-pointer text-left duration-column"
               >
                 Duration{' '}
                 {sortBy === 'duration' && (sortOrder === 'asc' ? '↑' : '↓')}
               </th>
               <th
                 onClick={() => handleSort('source')}
-                className="p-2 cursor-pointer text-left"
+                className="p-2 cursor-pointer text-left source-column"
               >
                 Source{' '}
                 {sortBy === 'source' && (sortOrder === 'asc' ? '↑' : '↓')}
               </th>
-
               <th
                 onClick={() => handleSort('interest')}
-                className="p-2 cursor-pointer text-left"
+                className="p-2 cursor-pointer text-left interest-column"
               >
                 Interest{' '}
                 {sortBy === 'interest' && (sortOrder === 'asc' ? '↑' : '↓')}
               </th>
+              <th className="p-2 cursor-pointer text-left more-column">More</th>
             </tr>
           </thead>
           <span className="pt-2 text-white"> " "</span>
@@ -187,7 +186,7 @@ const SessionTable = () => {
                     </tr>
 
                     {/* Render each session under this date */}
-                    {sessions.map((session) => (
+                    {sessions.map((session, index) => (
                       <tr
                         key={session.id}
                         className="hover:bg-gray-100 my-6 p-4 border rounded-lg"
@@ -195,12 +194,22 @@ const SessionTable = () => {
                         {/* Date column is not needed here since it's shown as the group header */}
                         <td className="p-2 text-left">{/* Empty */}</td>
                         <td className="p-2 text-left">{session.companyName}</td>
-                        <td className="p-2 text-left">{session.branch}</td>
-                        <td className="p-2 text-left">{session.city}</td>
-                        <td className="p-2 text-left">{session.pages}</td>
+                        <td className="p-2 text-left hidden lg:table-cell">
+                          {session.branch}
+                        </td>
+                        <td className="p-2 text-left hidden lg:table-cell xl:table-cell">
+                          {session.city}
+                        </td>
+                        <td className="p-2 text-left hidden md:table-cell">
+                          {session.pages}
+                        </td>
                         <td className="p-2 text-left">{session.duration}</td>
-                        <td className="p-2 text-left">{session.source}</td>
-                        <td className="p-2 text-left">{session.interest}</td>
+                        <td className="p-2 text-left hidden lg:table-cell">
+                          {session.source}
+                        </td>
+                        <td className="p-2 text-left hidden md:table-cell">
+                          {session.interest}
+                        </td>
                       </tr>
                     ))}
                   </React.Fragment>
@@ -232,11 +241,16 @@ const SessionTable = () => {
                           <span>{session.companyName}</span>
                         </div>
                       </td>
-                      <td className="p-2 text-left">{session.branch}</td>
-                      <td className="p-2 text-left">{session.city}</td>
+                      <td className="p-2 text-left hidden xl:table-cell">
+                        {session.branch}
+                      </td>
+
+                      <td className="p-2 text-left hidden lg:table-cell">
+                        {session.city}
+                      </td>
 
                       <td
-                        className="p-2 text-center relative"
+                        className="p-2 text-center relative hidden lg:table-cell"
                         onMouseEnter={() => setHoveredRow(index)}
                         onMouseLeave={() => setHoveredRow(null)}
                       >
@@ -292,10 +306,12 @@ const SessionTable = () => {
                           <span>{Math.floor(session.duration / 1000)} sec</span>
                         </div>
                       </td>
-                      <td className="p-2 text-blue-600 truncate ml-7 text-left">
+                      <td className="p-2 text-blue-600 truncate ml-7 text-left hidden lg:table-cell">
                         {session.source}
                       </td>
-                      <td className="p-2 text-left">{session.interest}</td>
+                      <td className="p-2 text-left hidden lg:table-cell">
+                        {session.interest}
+                      </td>
                       <td className="p-2 text-left relative">
                         <FaEllipsisV
                           className="text-gray-500 cursor-pointer z-50"
@@ -305,7 +321,7 @@ const SessionTable = () => {
                         />
                         {activePopup === index && (
                           <div
-                            className="absolute z-50 bg-white shadow-lg p-4 border rounded-lg mt-2 right-0 w-64 "
+                            className="absolute z-50 bg-white shadow-lg p-4 border rounded-lg mt-2 right-0 w-64"
                             ref={popupRef}
                           >
                             <div className="flex justify-between items-center mb-2">
