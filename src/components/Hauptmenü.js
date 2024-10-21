@@ -12,7 +12,6 @@ const VerticalSidebar = () => {
           <MainLogo />
         </div>
       </div>
-
       {/* Centered Icons */}
       <div className="flex flex-col items-center h-full w-full">
         {/* Dashboard Icon with white background */}
@@ -24,7 +23,6 @@ const VerticalSidebar = () => {
           <UserIcon />
         </div>
       </div>
-
       {/* Remaining space (optional for layout adjustment) */}
       <div className="flex-grow"></div>
     </div>

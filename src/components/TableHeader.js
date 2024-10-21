@@ -1,74 +1,59 @@
-// TableHeader.js
 import React from 'react';
 
-const TableHeader = ({ sortBy, sortOrder, onSort }) => {
-  const handleHeaderClick = (column) => {
-    if (sortBy === column) {
-      onSort(column, sortOrder === 'asc' ? 'desc' : 'asc'); // Toggle sort order
-    } else {
-      onSort(column, 'asc'); // Default to ascending order
-    }
-  };
-
-  const handleHeaderClickTime = (column) => {
-    if (sortBy === column) {
-      onSort(column, sortOrder === 'asc' ? 'desc' : 'asc'); // Toggle sort order
-    } else {
-      onSort(column, 'asc'); // Default to ascending order
-    }
-  };
-
+const TableHeader = ({ sortBy, sortOrder, handleSort }) => {
   return (
-    <thead className="bg-gray-50 text-left sticky top-0 z-10">
-      <tr className="border-b border-gray-300">
+    <thead className="bg-gray-50 text-left">
+      <tr>
         <th
-          className="p-4 pb-6 font-semibold cursor-pointer"
-          onClick={() => handleHeaderClick('Date')}
+          onClick={() => handleSort('date')}
+          className="p-2 cursor-pointer text-left date-column"
         >
-          Date {sortBy === 'Date' && (sortOrder === 'asc' ? '↑' : '↓')}
+          Date {sortBy === 'date' && (sortOrder === 'asc' ? '↑' : '↓')}
         </th>
         <th
-          className="p-4 font-semibold cursor-pointer"
-          onClick={() => handleHeaderClick('Company')}
+          onClick={() => handleSort('companyName')}
+          className="p-2 cursor-pointer text-left company-column"
         >
-          Company
+          Company{' '}
+          {sortBy === 'companyName' && (sortOrder === 'asc' ? '↑' : '↓')}
         </th>
         <th
-          className="p-4 font-semibold cursor-pointer"
-          onClick={() => handleHeaderClick('City')}
+          onClick={() => handleSort('branch')}
+          className="p-2 cursor-pointer text-left branch-column"
         >
-          City
+          Branch {sortBy === 'branch' && (sortOrder === 'asc' ? '↑' : '↓')}
         </th>
         <th
-          className="p-4 font-semibold cursor-pointer"
-          onClick={() => handleHeaderClick('Pages')}
+          onClick={() => handleSort('city')}
+          className="p-2 cursor-pointer text-left city-column"
         >
-          Pages
+          City {sortBy === 'city' && (sortOrder === 'asc' ? '↑' : '↓')}
         </th>
         <th
-          className="p-4 font-semibold cursor-pointer"
-          onClick={() => handleHeaderClickTime('Duration')}
+          onClick={() => handleSort('pages')}
+          className="p-2 cursor-pointer text-left pages-column"
         >
-          Duration {sortBy === 'Duration' && (sortOrder === 'asc' ? '↑' : '↓')}
+          Pages {sortBy === 'pages' && (sortOrder === 'asc' ? '↑' : '↓')}
         </th>
         <th
-          className="p-4 font-semibold cursor-pointer"
-          onClick={() => handleHeaderClick('Interest')}
+          onClick={() => handleSort('duration')}
+          className="p-2 cursor-pointer text-left duration-column"
         >
-          Interest
+          Duration {sortBy === 'duration' && (sortOrder === 'asc' ? '↑' : '↓')}
         </th>
         <th
-          className="p-4 font-semibold cursor-pointer"
-          onClick={() => handleHeaderClick('Source')}
+          onClick={() => handleSort('source')}
+          className="p-2 cursor-pointer text-left source-column"
         >
-          Source
+          Source {sortBy === 'source' && (sortOrder === 'asc' ? '↑' : '↓')}
         </th>
         <th
-          className="p-4 font-semibold cursor-pointer"
-          onClick={() => handleHeaderClick('More')}
+          onClick={() => handleSort('interest')}
+          className="p-2 cursor-pointer text-left interest-column"
         >
-          More
+          Interest {sortBy === 'interest' && (sortOrder === 'asc' ? '↑' : '↓')}
         </th>
+        <th className="p-2 cursor-pointer text-left more-column">More</th>
       </tr>
     </thead>
   );
