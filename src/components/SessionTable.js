@@ -186,28 +186,39 @@ const SessionTable = () => {
                     </tr>
 
                     {/* Render each session under this date */}
-                    {sessions.map((session, index) => (
+                    {sessions.map((session) => (
                       <tr
                         key={session.id}
                         className="hover:bg-gray-100 my-6 p-4 border rounded-lg"
                       >
-                        {/* Date column is not needed here since it's shown as the group header */}
-                        <td className="p-2 text-left">{/* Empty */}</td>
+                        {/* Date column */}
+                        <td className="p-2 text-left date-column">
+                          {session.date}
+                        </td>
+                        {/* Company column */}
                         <td className="p-2 text-left">{session.companyName}</td>
-                        <td className="p-2 text-left hidden lg:table-cell">
+                        {/* Branch column */}
+                        <td className="p-2 text-left hidden xl:table-cell branch-column">
                           {session.branch}
                         </td>
-                        <td className="p-2 text-left hidden lg:table-cell xl:table-cell">
+                        {/* City column */}
+                        <td className="p-2 text-left hidden lg:table-cell city-column">
                           {session.city}
                         </td>
-                        <td className="p-2 text-left hidden md:table-cell">
+                        {/* Pages column */}
+                        <td className="p-2 text-left hidden md:table-cell pages-column">
                           {session.pages}
                         </td>
-                        <td className="p-2 text-left">{session.duration}</td>
-                        <td className="p-2 text-left hidden lg:table-cell">
+                        {/* Duration column */}
+                        <td className="p-2 text-left duration-column">
+                          {session.duration}
+                        </td>
+                        {/* Source column */}
+                        <td className="p-2 text-left hidden lg:table-cell source-column">
                           {session.source}
                         </td>
-                        <td className="p-2 text-left hidden md:table-cell">
+                        {/* Interest column */}
+                        <td className="p-2 text-left hidden md:table-cell interest-column">
                           {session.interest}
                         </td>
                       </tr>
@@ -223,7 +234,9 @@ const SessionTable = () => {
                       </td>
                     </tr>
                     <tr className="hover:bg-gray-100 my-6 p-4 border rounded-lg">
-                      <td className="p-2 text-left">{session.date}</td>
+                      <td className="p-2 text-left date-column">
+                        {session.date}
+                      </td>
                       <td className="p-2 text-left">
                         <div className="flex items-center space-x-2">
                           {session.logo ? (
@@ -241,16 +254,16 @@ const SessionTable = () => {
                           <span>{session.companyName}</span>
                         </div>
                       </td>
-                      <td className="p-2 text-left hidden xl:table-cell">
+                      <td className="p-2 text-left hidden xl:table-cell branch-column">
                         {session.branch}
                       </td>
 
-                      <td className="p-2 text-left hidden lg:table-cell">
+                      <td className="p-2 text-left hidden lg:table-cell city-column">
                         {session.city}
                       </td>
 
                       <td
-                        className="p-2 text-center relative hidden lg:table-cell"
+                        className="p-2 text-center relative hidden md:table-cell pages-column"
                         onMouseEnter={() => setHoveredRow(index)}
                         onMouseLeave={() => setHoveredRow(null)}
                       >
@@ -300,16 +313,16 @@ const SessionTable = () => {
                         )}
                       </td>
 
-                      <td className="p-2 pr-12">
+                      <td className="p-2 pr-12 duration-column">
                         <div className="flex items-center ml-8 mr-8">
                           <FaYoutube className="mr-2 text-gray-400" />
                           <span>{Math.floor(session.duration / 1000)} sec</span>
                         </div>
                       </td>
-                      <td className="p-2 text-blue-600 truncate ml-7 text-left hidden lg:table-cell">
+                      <td className="p-2 text-blue-600 truncate ml-7 text-left hidden lg:table-cell source-column">
                         {session.source}
                       </td>
-                      <td className="p-2 text-left hidden lg:table-cell">
+                      <td className="p-2 text-left hidden md:table-cell interest-column">
                         {session.interest}
                       </td>
                       <td className="p-2 text-left relative">
