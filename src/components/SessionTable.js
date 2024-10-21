@@ -55,18 +55,8 @@ const SessionTable = () => {
         return 0;
       });
 
-    // Group data by date
-    const groupedData = sortedData.reduce((acc, session) => {
-      const date = new Date(session.date).toLocaleDateString('de-DE');
-      if (!acc[date]) {
-        acc[date] = [];
-      }
-      acc[date].push(session);
-      return acc;
-    }, {});
-
     setSortedData(sortedData); // Update sorted data state
-  }, [sortBy, sortOrder, sessionDataOrginal]);
+  }, [sortBy, sortOrder]);
 
   const handleSort = useCallback(
     (column) => {
