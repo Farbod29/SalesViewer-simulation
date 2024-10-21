@@ -1,15 +1,14 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
+import '../styles/mediaQueries.css';
 import sessionDataOrginal from '../data/sessionDataOrginal.json';
 import { FaEllipsisV, FaYoutube } from 'react-icons/fa';
-import ReactDOM from 'react-dom';
 
-const VirtualizedTable = () => {
+const SessionTable = () => {
   const [sortedData, setSortedData] = useState([]);
   const [sortBy, setSortBy] = useState(null);
   const [sortOrder, setSortOrder] = useState('asc');
   const [hoveredRow, setHoveredRow] = useState(null);
   const [activePopup, setActivePopup] = useState(null);
-  const [groupedData, setGroupedData] = useState({});
   const popupRef = useRef(null); // Define popupRef
 
   useEffect(() => {
@@ -56,19 +55,8 @@ const VirtualizedTable = () => {
         return 0;
       });
 
-    // Group data by date
-    const groupedData = sortedData.reduce((acc, session) => {
-      const date = new Date(session.date).toLocaleDateString('de-DE');
-      if (!acc[date]) {
-        acc[date] = [];
-      }
-      acc[date].push(session);
-      return acc;
-    }, {});
-
     setSortedData(sortedData); // Update sorted data state
-    setGroupedData(groupedData); // Update grouped data state
-  }, [sortBy, sortOrder, sessionDataOrginal]);
+  }, [sortBy, sortOrder]);
 
   const handleSort = useCallback(
     (column) => {
@@ -111,58 +99,58 @@ const VirtualizedTable = () => {
             <tr>
               <th
                 onClick={() => handleSort('date')}
-                className="p-2 cursor-pointer text-left"
+                className="p-2 cursor-pointer text-left date-column"
               >
                 Date {sortBy === 'date' && (sortOrder === 'asc' ? '↑' : '↓')}
               </th>
               <th
                 onClick={() => handleSort('companyName')}
-                className="p-2 cursor-pointer text-left"
+                className="p-2 cursor-pointer text-left company-column"
               >
                 Company{' '}
                 {sortBy === 'companyName' && (sortOrder === 'asc' ? '↑' : '↓')}
               </th>
               <th
                 onClick={() => handleSort('branch')}
-                className="p-2 cursor-pointer text-left mr-12 pl-14"
+                className="p-2 cursor-pointer text-left branch-column"
               >
                 Branch{' '}
                 {sortBy === 'branch' && (sortOrder === 'asc' ? '↑' : '↓')}
               </th>
               <th
                 onClick={() => handleSort('city')}
-                className="p-2 pl-12 cursor-pointer text-left"
+                className="p-2 cursor-pointer text-left city-column"
               >
                 City {sortBy === 'city' && (sortOrder === 'asc' ? '↑' : '↓')}
               </th>
               <th
                 onClick={() => handleSort('pages')}
-                className="pr-8 cursor-pointer text-left"
+                className="p-2 cursor-pointer text-left pages-column"
               >
                 Pages {sortBy === 'pages' && (sortOrder === 'asc' ? '↑' : '↓')}
               </th>
               <th
                 onClick={() => handleSort('duration')}
-                className="p-3 pl-8 cursor-pointer text-left ml-12"
+                className="p-2 cursor-pointer text-left duration-column"
               >
                 Duration{' '}
                 {sortBy === 'duration' && (sortOrder === 'asc' ? '↑' : '↓')}
               </th>
               <th
                 onClick={() => handleSort('source')}
-                className="p-2 cursor-pointer text-left"
+                className="p-2 cursor-pointer text-left source-column"
               >
                 Source{' '}
                 {sortBy === 'source' && (sortOrder === 'asc' ? '↑' : '↓')}
               </th>
-
               <th
                 onClick={() => handleSort('interest')}
-                className="p-2 cursor-pointer text-left"
+                className="p-2 cursor-pointer text-left interest-column"
               >
                 Interest{' '}
                 {sortBy === 'interest' && (sortOrder === 'asc' ? '↑' : '↓')}
               </th>
+              <th className="p-2 cursor-pointer text-left more-column">More</th>
             </tr>
           </thead>
           <span className="pt-2 text-white"> " "</span>
@@ -171,7 +159,7 @@ const VirtualizedTable = () => {
               ? // If sorting by date, group the sessions by date
                 Object.entries(
                   sortedData.reduce((acc, session) => {
-                    const date = session.date;
+                    const date = session.date.split(',')[0]; // Extract only the date part
                     if (!acc[date]) {
                       acc[date] = [];
                     }
@@ -193,15 +181,96 @@ const VirtualizedTable = () => {
                         key={session.id}
                         className="hover:bg-gray-100 my-6 p-4 border rounded-lg"
                       >
-                        {/* Date column is not needed here since it's shown as the group header */}
-                        <td className="p-2 text-left">{/* Empty */}</td>
+                        {/* Date column */}
+                        <td className="p-2 text-left date-column">
+                          {session.date}
+                        </td>
+                        {/* Company column */}
                         <td className="p-2 text-left">{session.companyName}</td>
-                        <td className="p-2 text-left">{session.branch}</td>
-                        <td className="p-2 text-left">{session.city}</td>
-                        <td className="p-2 text-left">{session.pages}</td>
-                        <td className="p-2 text-left">{session.duration}</td>
-                        <td className="p-2 text-left">{session.source}</td>
-                        <td className="p-2 text-left">{session.interest}</td>
+                        {/* Branch column */}
+                        <td className="p-2 text-left hidden xl:table-cell branch-column">
+                          {session.branch}
+                        </td>
+                        {/* City column */}
+                        <td className="p-2 text-left hidden lg:table-cell city-column">
+                          {session.city}
+                        </td>
+                        {/* Pages column */}
+                        <td className="p-2 text-left hidden md:table-cell pages-column">
+                          {session.pages}
+                        </td>
+                        {/* Duration column */}
+                        <td className="p-2 text-left duration-column">
+                          {session.duration}
+                        </td>
+                        {/* Source column */}
+                        <td className="p-2 text-left hidden lg:table-cell source-column">
+                          {session.source}
+                        </td>
+                        {/* Interest column */}
+                        <td className="p-2 text-left hidden md:table-cell interest-column">
+                          {session.interest}
+                        </td>
+                      </tr>
+                    ))}
+                  </React.Fragment>
+                ))
+              : sortBy === 'companyName'
+              ? // If sorting by company name, group the sessions by company
+                Object.entries(
+                  sortedData.reduce((acc, session) => {
+                    const companyName = session.companyName;
+                    if (!acc[companyName]) {
+                      acc[companyName] = [];
+                    }
+                    acc[companyName].push(session);
+                    return acc;
+                  }, {})
+                ).map(([companyName, sessions]) => (
+                  <React.Fragment key={companyName}>
+                    {/* Render the group header with the company name */}
+                    <tr className="bg-gray-50">
+                      <td colSpan="9" className="p-2 font-bold">
+                        {companyName}
+                      </td>
+                    </tr>
+
+                    {/* Render each session under this company */}
+                    {sessions.map((session) => (
+                      <tr
+                        key={session.id}
+                        className="hover:bg-gray-100 my-6 p-4 border rounded-lg"
+                      >
+                        {/* Date column */}
+                        <td className="p-2 text-left date-column">
+                          {session.date}
+                        </td>
+                        {/* Company column */}
+                        <td className="p-2 text-left">{session.companyName}</td>
+                        {/* Branch column */}
+                        <td className="p-2 text-left hidden xl:table-cell branch-column">
+                          {session.branch}
+                        </td>
+                        {/* City column */}
+                        <td className="p-2 text-left hidden lg:table-cell city-column">
+                          {session.city}
+                        </td>
+                        {/* Pages column */}
+                        <td className="p-2 text-left hidden md:table-cell pages-column">
+                          {session.pages}
+                        </td>
+                        {/* Duration column */}
+                        <td className="p-2 text-left duration-column">
+                          {session.duration}
+                        </td>
+                        {/* Source column */}
+                        <td className="p-2 text-left hidden lg:table-cell source-column">
+                          {session.source}
+                        </td>
+                        {/* Interest column */}
+                        <td className="p-2 text-left hidden md:table-cell interest-column">
+                          {session.interest}
+                        </td>
                       </tr>
                     ))}
                   </React.Fragment>
@@ -215,7 +284,9 @@ const VirtualizedTable = () => {
                       </td>
                     </tr>
                     <tr className="hover:bg-gray-100 my-6 p-4 border rounded-lg">
-                      <td className="p-2 text-left">{session.date}</td>
+                      <td className="p-2 text-left date-column">
+                        {session.date}
+                      </td>
                       <td className="p-2 text-left">
                         <div className="flex items-center space-x-2">
                           {session.logo ? (
@@ -233,11 +304,16 @@ const VirtualizedTable = () => {
                           <span>{session.companyName}</span>
                         </div>
                       </td>
-                      <td className="p-2 text-left">{session.branch}</td>
-                      <td className="p-2 text-left">{session.city}</td>
+                      <td className="p-2 text-left hidden xl:table-cell branch-column">
+                        {session.branch}
+                      </td>
+
+                      <td className="p-2 text-left hidden lg:table-cell city-column">
+                        {session.city}
+                      </td>
 
                       <td
-                        className="p-2 text-center relative"
+                        className="p-2 text-center relative hidden md:table-cell pages-column"
                         onMouseEnter={() => setHoveredRow(index)}
                         onMouseLeave={() => setHoveredRow(null)}
                       >
@@ -286,17 +362,18 @@ const VirtualizedTable = () => {
                           </div>
                         )}
                       </td>
-
-                      <td className="p-2 pr-12">
+                      <td className="p-2 pr-12 duration-column">
                         <div className="flex items-center ml-8 mr-8">
                           <FaYoutube className="mr-2 text-gray-400" />
                           <span>{Math.floor(session.duration / 1000)} sec</span>
                         </div>
                       </td>
-                      <td className="p-2 text-blue-600 truncate ml-7 text-left">
+                      <td className="p-2 text-blue-600 truncate ml-7 text-left hidden lg:table-cell source-column">
                         {session.source}
                       </td>
-                      <td className="p-2 text-left">{session.interest}</td>
+                      <td className="p-2 text-left hidden md:table-cell interest-column">
+                        {session.interest}
+                      </td>
                       <td className="p-2 text-left relative">
                         <FaEllipsisV
                           className="text-gray-500 cursor-pointer z-50"
@@ -306,7 +383,7 @@ const VirtualizedTable = () => {
                         />
                         {activePopup === index && (
                           <div
-                            className="absolute z-50 bg-white shadow-lg p-4 border rounded-lg mt-2 right-0 w-64 "
+                            className="absolute z-50 bg-white shadow-lg p-4 border rounded-lg mt-2 right-0 w-64"
                             ref={popupRef}
                           >
                             <div className="flex justify-between items-center mb-2">
@@ -366,4 +443,4 @@ const VirtualizedTable = () => {
   );
 };
 
-export default VirtualizedTable;
+export default SessionTable;
