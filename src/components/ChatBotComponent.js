@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ThemeProvider } from 'styled-components';
 import ChatBot from 'react-simple-chatbot';
 import { FaShoppingBasket } from 'react-icons/fa';
@@ -32,29 +32,87 @@ const CompanyList = () => (
           className="max-w-[200px] my-2"
         />
       </a>
-      <div> Current basket value: 750 €</div>
+      <div>Current basket value: 750 €</div>
       <a href="tel:+49123456789">Phone: +49 123 456 789</a>
     </div>
-    <div>
-      <div className="border border-gray-300 p-4 rounded-lg shadow-md">
-        <strong>TLX Sped</strong>
-        <a
-          href="https://tlx-sped.com/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <img
-            src="https://tlx-sped.com/images/logo-TLX_transp.png"
-            alt="TLX Sped Logo"
-            className="max-w-[200px] my-2"
-          />
-        </a>
-        <div>Price: 850 €</div>
-        <a href="tel:+49987654321">Phone: +49 987 654 321</a>
-      </div>
+    <div className="border border-gray-300 p-4 rounded-lg shadow-md">
+      <strong>TLX Sped</strong>
+      <a href="https://tlx-sped.com/" target="_blank" rel="noopener noreferrer">
+        <img
+          src="https://tlx-sped.com/images/logo-TLX_transp.png"
+          alt="TLX Sped Logo"
+          className="max-w-[200px] my-2"
+        />
+      </a>
+      <div>Price: 850 €</div>
+      <a href="tel:+49987654321">Phone: +49 987 654 321</a>
     </div>
   </div>
 );
+
+// Custom component for API-based chat
+const ApiChat = () => {
+  const [loading, setLoading] = useState(false);
+  const [userInput, setUserInput] = useState('');
+  const [response, setResponse] = useState('');
+
+  const handleUserInput = async () => {
+    setLoading(true);
+    try {
+      const res = await fetch('https://api.openai.com/v1/chat/completions', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${process.env.REACT_APP_OPENAI_API_KEY}`,
+        },
+        body: JSON.stringify({
+          model: 'gpt-3.5-turbo',
+          messages: [
+            {
+              role: 'system',
+              content:
+                'You are a helpful assistant for the Sales Viewer application.',
+            },
+            {
+              role: 'user',
+              content: userInput,
+            },
+          ],
+        }),
+      });
+
+      const data = await res.json();
+      setResponse(data.choices[0].message.content);
+    } catch (error) {
+      console.error('Error:', error);
+      setResponse(
+        'I apologize, but I encountered an error. Please try again later.'
+      );
+    }
+    setLoading(false);
+    setUserInput(''); // Clear input field after sending
+  };
+
+  return (
+    <div>
+      <input
+        type="text"
+        value={userInput}
+        onChange={(e) => setUserInput(e.target.value)}
+        placeholder="Type your message..."
+        className="w-full p-2 border rounded"
+      />
+      <button
+        onClick={handleUserInput}
+        disabled={loading}
+        className="mt-2 bg-[#001f3f] text-white px-4 py-2 rounded"
+      >
+        {loading ? 'Thinking...' : 'Send'}
+      </button>
+      {response && <div className="mt-4">{response}</div>}
+    </div>
+  );
+};
 
 // Define the steps for the chatbot
 const steps = [
@@ -69,11 +127,11 @@ const steps = [
     id: 'user-response',
     options: [
       {
-        value: 'yes lets see',
-        label: 'Yes lets see',
+        value: 'yes lets see!',
+        label: 'Yes lets see!',
         trigger: 'show-companies',
       },
-      { value: 'Not now', label: 'Not now', trigger: 'no-response' },
+      { value: 'Not now', label: 'Not now', trigger: 'ask-for-help' },
     ],
   },
   {
@@ -91,11 +149,30 @@ const steps = [
   {
     id: 'company-links',
     component: <CompanyList />,
-    end: true,
+    trigger: 'ask-for-help',
   },
   {
-    id: 'no-response',
-    message: 'Okay, let me know if you need any assistance!',
+    id: 'ask-for-help',
+    message: 'Would you like to ask me anything else about Sales Viewer?',
+    trigger: 'help-options',
+  },
+  {
+    id: 'help-options',
+    options: [
+      { value: 'yes', label: 'Yes, I have questions', trigger: 'api-chat' },
+      { value: 'no', label: 'No, thanks', trigger: 'goodbye' },
+    ],
+  },
+  {
+    id: 'api-chat',
+    component: <ApiChat />,
+    waitAction: true,
+    trigger: 'goodbye',
+  },
+  {
+    id: 'goodbye',
+    message:
+      'Thank you for using Sales Viewer! Feel free to come back if you need anything else.',
     end: true,
   },
 ];
@@ -109,6 +186,7 @@ const ChatBotComponent = ({ visible }) => {
           botBubbleStyle={{ textAlign: 'left' }}
           userBubbleStyle={{ textAlign: 'left' }}
           floating={true}
+          headerTitle="Sales Viewer Assistant"
         />
       </ThemeProvider>
     </div>
