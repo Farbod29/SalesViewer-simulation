@@ -1,4 +1,4 @@
-/* Hide scrollbar in WebKit browsers */
+Hide scrollbar in WebKit browsers
 .table-container::-webkit-scrollbar {
     display: none; /* Hides scrollbar */
   }
@@ -13,4 +13,10 @@
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
     overflow-y: scroll;
+  }
+
+  /* Prevent the body from scrolling */
+body, html {
+    overflow: hidden;
+    height: 100%;
   }

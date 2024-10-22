@@ -5,12 +5,12 @@ import VerticalSidebar from '../components/MainMenu'; // Import the sidebar
 
 const Home = () => {
   return (
-    <div className="flex min-h-screen overflow-hidden">
+    <div className="flex overflow-hidden">
       {/* Fixed Sidebar */}
       <VerticalSidebar className="sidebar" />
 
       {/* Main content with flexible width */}
-      <div className="container flex flex-col flex-grow">
+      <div className=" flex flex-col flex-grow">
         {/* Fixed Header */}
         <Header />
         <div className="flex-grow overflow-hidden p-6">

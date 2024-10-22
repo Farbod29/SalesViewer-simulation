@@ -37,7 +37,7 @@ const TableHeader = ({ sortBy, sortOrder, handleSort }) => {
         </th>
         <th
           onClick={() => handleSort('duration')}
-          className="p-2 cursor-pointer text-left duration-column pl-8"
+          className="p-2 cursor-pointer text-left duration-column pl-1"
         >
           Duration {sortBy === 'duration' && (sortOrder === 'asc' ? '↑' : '↓')}
         </th>

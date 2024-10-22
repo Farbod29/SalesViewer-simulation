@@ -74,24 +74,27 @@ const SessionTable = () => {
 
   return (
     <div className="container mx-auto p-1 sm:p-8 text-left mb-1 z-50">
-      {/* Added overflow-y to make the table body scrollable */}
-      <div className="table-container overflow-y-auto max-h-[750px] z-50">
+      <div className="table-container relative">
         <table className="w-full table-auto border-collapse text-xs text-left z-50">
           <TableHeader
             sortBy={sortBy}
             sortOrder={sortOrder}
             handleSort={handleSort}
           />
-          <TableBody
-            sortedData={sortedData}
-            sortBy={sortBy}
-            hoveredRow={hoveredRow}
-            setHoveredRow={setHoveredRow}
-            setActivePopup={setActivePopup}
-            activePopup={activePopup}
-            popupRef={popupRef}
-          />
         </table>
+        <div className="overflow-y-auto max-h-[740px]">
+          <table className="w-full table-auto border-collapse text-xs text-left z-50">
+            <TableBody
+              sortedData={sortedData}
+              sortBy={sortBy}
+              hoveredRow={hoveredRow}
+              setHoveredRow={setHoveredRow}
+              setActivePopup={setActivePopup}
+              activePopup={activePopup}
+              popupRef={popupRef}
+            />
+          </table>
+        </div>
       </div>
     </div>
   );
