@@ -81,7 +81,12 @@ const TableRow = ({
         </span>
         {hoveredRow === index && (
           <div className="absolute z-20 bg-white shadow-lg p-2 border rounded-lg mt-2 left-0">
-            <p className="font-bold text-gray-900 mb-2">Visited Pages</p>
+            <p
+              className="font-bold text-gray-900 mb-2"
+              style={{ minWidth: '500px' }}
+            >
+              Visited Pages
+            </p>
             <ul className="text-gray-600">
               {session.visits?.map((visit, i) => (
                 <li key={i} className="py-1">

@@ -48,9 +48,7 @@ th, td {
 }
 
 /* Add this to your global CSS or style file */
-.table-spacing {
-  border-spacing: 3 12px; /* 8px of vertical space between rows */
-}
+
 
 /* Example CSS */
 td {

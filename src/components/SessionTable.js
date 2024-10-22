@@ -83,7 +83,7 @@ const SessionTable = () => {
           />
         </table>
         <div className="overflow-y-auto max-h-[760px]">
-          <table className="w-full table-auto border-collapse text-xs text-left z-30 table-spacing pt-2 mt-8">
+          <table className="w-full table-auto border-collapse text-xs text-left z-30 table-spacing pt-2 mt-8 shadow-md">
             <TableBody
               sortedData={sortedData}
               sortBy={sortBy}

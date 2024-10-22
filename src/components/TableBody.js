@@ -26,8 +26,8 @@ const TableBody = ({
           ).map(([date, sessions]) => (
             <React.Fragment key={date}>
               {/* Render the group header for the date */}
-              <tr className="bg-gray-50">
-                <td colSpan="9" className="p-2 font-bold">
+              <tr className="bg-gray-50 shadow-md ">
+                <td colSpan="9" className="p-2 font-bold shadow-md">
                   {date}
                 </td>
               </tr>
@@ -63,7 +63,7 @@ const TableBody = ({
           ).map(([companyName, sessions]) => (
             <React.Fragment key={companyName}>
               {/* Render the group header for the company */}
-              <tr className="bg-gray-50">
+              <tr className="bg-gray-50 shadow-md">
                 <td colSpan="9" className="p-2 font-bold">
                   {companyName}
                 </td>
@@ -101,6 +101,7 @@ const TableBody = ({
                 activePopup={activePopup}
                 popupRef={popupRef}
               />
+
               {/* Empty row to add space between rows */}
               <tr>
                 <td colSpan="9" className="p-2 "></td>

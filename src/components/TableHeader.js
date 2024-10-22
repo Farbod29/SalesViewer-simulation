@@ -2,7 +2,7 @@ import React from 'react';
 
 const TableHeader = ({ sortBy, sortOrder, handleSort }) => {
   return (
-    <thead className="bg-gray-50 text-left z-50">
+    <thead className="bg-gray-50 text-left z-50 shadow-md">
       <tr>
         <th
           onClick={() => handleSort('date')}
