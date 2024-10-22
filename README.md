@@ -99,7 +99,8 @@ The application is designed to be responsive, adapting to various screen sizes f
 
 ## Deployment (Vercel Lazy load)
 
-[Sales Viewer Live Demo](https://salesviewer.vercel.app/)
+[Sales Viewer Live Demo](https://salesviewer-seven.vercel.app/)
+
 Pleasem,try this package localy for testing filters.
 as its slow on vercel.
 
@@ -230,7 +231,7 @@ Die Anwendung ist so konzipiert, dass sie responsive ist und sich an verschieden
 
 ## Deplyment 
 
-[Sales Viewer Live Demo](https://salesviewer.vercel.app/)
+[Sales Viewer Live Demo](https://salesviewer-seven.vercel.app/)
 
 Gründe für die Langsamkeit auf Vercel
 
