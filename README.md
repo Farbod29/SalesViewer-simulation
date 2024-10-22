@@ -208,4 +208,6 @@ Die Anwendung ist so konzipiert, dass sie responsive ist und sich an verschieden
 
 Dieses Projekt ist unter der MIT-Lizenz lizenziert -
 Kontaktieren Sie mich für weitere Informationen.
+aprin.farbod@gmail.com
 Dr. -Ing Farbod Aprin
+
