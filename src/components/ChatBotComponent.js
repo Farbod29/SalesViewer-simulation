@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { ThemeProvider } from 'styled-components';
 import ChatBot from 'react-simple-chatbot';
-import { FaShoppingBasket } from 'react-icons/fa';
+import { BsBasket2Fill } from 'react-icons/bs';
 
 // Define the theme for the chatbot
 const theme = {
@@ -33,7 +33,9 @@ const CompanyList = () => (
         />
       </a>
       <div>Current basket value: 750 €</div>
-      <a href="tel:+49123456789">Phone: +49 123 456 789</a>
+      <a href="tel:+49123456789" className="text-cyan-600">
+        Phone: +49 123 456 789
+      </a>
     </div>
     <div className="border border-gray-300 p-4 rounded-lg shadow-md">
       <strong>TLX Sped</strong>
@@ -44,8 +46,12 @@ const CompanyList = () => (
           className="max-w-[200px] my-2"
         />
       </a>
-      <div>Price: 850 €</div>
-      <a href="tel:+49987654321">Phone: +49 987 654 321</a>
+      <div>
+        Current basket value <BsBasket2Fill /> item 2881 + Lk2234: 850 €
+      </div>
+      <a href="tel:+49987654321" className="text-cyan-600">
+        Phone: +49 987 654 321
+      </a>
     </div>
   </div>
 );
@@ -53,7 +59,9 @@ const CompanyList = () => (
 // Custom component for API-based chat
 const ApiChat = () => {
   const [loading, setLoading] = useState(false);
-  const [userInput, setUserInput] = useState('');
+  const [userInput, setUserInput] = useState(
+    'how salesviewer.com works and help my business'
+  );
   const [response, setResponse] = useState('');
 
   const handleUserInput = async () => {
