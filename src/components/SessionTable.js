@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef, useCallback } from 'react';
 import sessionDataOriginal from '../data/sessionDataOrginal.json';
 import TableHeader from './TableHeader';
 import TableBody from './TableBody';
+import '../styles/mediaQueries.css';
 
 const SessionTable = () => {
   const [sortedData, setSortedData] = useState([]);
@@ -72,9 +73,10 @@ const SessionTable = () => {
   );
 
   return (
-    <div className="container mx-auto p-8 text-left mb-10">
-      <div className="overflow-x-auto">
-        <table className="min-w-full table-auto -collapse-gray-200 text-xs text-left">
+    <div className="container mx-auto p-1 sm:p-8 text-left mb-1 z-50">
+      {/* Added overflow-y to make the table body scrollable */}
+      <div className="table-container overflow-y-auto max-h-[750px] z-50">
+        <table className="w-full table-auto border-collapse text-xs text-left z-50">
           <TableHeader
             sortBy={sortBy}
             sortOrder={sortOrder}
@@ -82,7 +84,7 @@ const SessionTable = () => {
           />
           <TableBody
             sortedData={sortedData}
-            sortBy={sortBy} // Pass sortBy to decide grouping
+            sortBy={sortBy}
             hoveredRow={hoveredRow}
             setHoveredRow={setHoveredRow}
             setActivePopup={setActivePopup}

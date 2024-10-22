@@ -8,14 +8,14 @@
 /* Below 1440px, hide city column */
 @media (max-width: 1440px) {
   .city-column {
-    display: none;
+    display: none !important;
   }
 }
 
 /* Below 1200px, hide interest column */
 @media (max-width: 1200px) {
   .interest-column {
-    display: none;
+    display: none !important;
   }
 }
 
@@ -26,7 +26,7 @@
   .pages-column,
   .interest-column,
   .source-column {   
-    display: none;
+    display: none !important;
   }
 }
 
@@ -39,6 +39,6 @@
   .source-column,
   .duration-column,
   .date-column {  
-    display: none;
+    display: none !important;
   }
 }

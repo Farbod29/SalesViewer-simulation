@@ -1,0 +1,16 @@
+/* Hide scrollbar in WebKit browsers */
+.table-container::-webkit-scrollbar {
+    display: none; /* Hides scrollbar */
+  }
+  
+  /* For Firefox */
+  .table-container {
+    scrollbar-width: none; /* Hides scrollbar */
+  }
+  
+  /* Hide scrollbar but still allow scrolling */
+  .table-container {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+    overflow-y: scroll;
+  }

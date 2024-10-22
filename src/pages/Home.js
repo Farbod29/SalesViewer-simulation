@@ -1,18 +1,19 @@
 import React from 'react';
 import Header from '../components/Header'; // Import the header
 import SessionTable from '../components/SessionTable'; // Import the session table
-import VerticalSidebar from '../components/Hauptmenü'; // Import the sidebar
+import VerticalSidebar from '../components/MainMenu'; // Import the sidebar
 
 const Home = () => {
   return (
-    <div className="flex min-h-screen">
-      {/* Sidebar with fixed width */}
-      <VerticalSidebar className="w-1/4" />
+    <div className="flex min-h-screen overflow-hidden">
+      {/* Fixed Sidebar */}
+      <VerticalSidebar className="sidebar" />
 
       {/* Main content with flexible width */}
-      <div className="flex flex-col flex-grow h-screen">
-        <Header className="w-full" />
-        <div className="flex-grow z-50 p-6 overflow-auto">
+      <div className="container flex flex-col flex-grow">
+        {/* Fixed Header */}
+        <Header />
+        <div className="flex-grow overflow-hidden p-6">
           <SessionTable />
         </div>
       </div>
@@ -21,4 +22,3 @@ const Home = () => {
 };
 
 export default Home;
- 

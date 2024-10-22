@@ -2,7 +2,7 @@ import React from 'react';
 
 const TableHeader = ({ sortBy, sortOrder, handleSort }) => {
   return (
-    <thead className="bg-gray-50 text-left">
+    <thead className="bg-gray-50 text-left z-50">
       <tr>
         <th
           onClick={() => handleSort('date')}
@@ -37,7 +37,7 @@ const TableHeader = ({ sortBy, sortOrder, handleSort }) => {
         </th>
         <th
           onClick={() => handleSort('duration')}
-          className="p-2 cursor-pointer text-left duration-column"
+          className="p-2 cursor-pointer text-left duration-column pl-8"
         >
           Duration {sortBy === 'duration' && (sortOrder === 'asc' ? '↑' : '↓')}
         </th>
@@ -53,7 +53,7 @@ const TableHeader = ({ sortBy, sortOrder, handleSort }) => {
         >
           Interest {sortBy === 'interest' && (sortOrder === 'asc' ? '↑' : '↓')}
         </th>
-        <th className="p-2 cursor-pointer text-left more-column">More</th>
+        <th className="cursor-pointer more-column pr-4 text-right">More</th>
       </tr>
     </thead>
   );
