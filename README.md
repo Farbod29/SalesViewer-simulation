@@ -206,6 +206,6 @@ Die Anwendung ist so konzipiert, dass sie responsive ist und sich an verschieden
 
 ## Lizenz
 
-Dieses Projekt ist unter der MIT-Lizenz lizenziert - siehe die [LICENSE](LICENSE)-Datei für Einzelheiten.
+Dieses Projekt ist unter der MIT-Lizenz lizenziert -
 Kontaktieren Sie mich für weitere Informationen.
 Dr. -Ing Farbod Aprin
