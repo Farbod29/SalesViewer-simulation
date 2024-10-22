@@ -1,6 +1,31 @@
 import React from 'react';
 
-const TableHeader = ({ sortBy, sortOrder, handleSort }) => {
+// Define the possible sort columns
+type SortableColumn =
+  | 'date'
+  | 'companyName'
+  | 'branch'
+  | 'city'
+  | 'pages'
+  | 'duration'
+  | 'source'
+  | 'interest';
+
+// Define the sort order type
+type SortOrder = 'asc' | 'desc';
+
+// Define the props interface
+interface TableHeaderProps {
+  sortBy: SortableColumn;
+  sortOrder: SortOrder;
+  handleSort: (column: SortableColumn) => void;
+}
+
+const TableHeader: React.FC<TableHeaderProps> = ({
+  sortBy,
+  sortOrder,
+  handleSort,
+}) => {
   return (
     <thead className="bg-gray-50 text-left z-50 shadow-md">
       <tr>

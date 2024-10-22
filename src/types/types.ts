@@ -2,6 +2,22 @@
 export interface Referer {
   referer_medium: string;
   referer_url: string;
+  referer_source?: string; // Optional
+  referer_term?: string; // Optional
+  referer_device?: string; // Optional
+  referer_network?: string; // Optional
+  referer_content?: string; // Optional
+  referer_campaign?: string; // Optional
+}
+
+export interface CampaignHit {
+  id: string;
+  project_id: string;
+  name: string;
+  type_id: string;
+  date_from: string;
+  date_to: string;
+  country_code: string;
 }
 
 export interface Category {
@@ -20,9 +36,9 @@ export interface Company {
   name: string;
   city: string;
   countryCode: string;
-  countryCode3: string;
+  countryCode3?: string; // Optional
   isCustomer: boolean;
-  category: Category;
+  category: Category | null; // Allow for null
   note: string | null;
   sector: Sector;
   employees: any[]; // Define a better type if possible
@@ -35,6 +51,7 @@ export interface Visit {
   url: string;
   referer: string;
   refererMedium: string;
+  refererSource?: string; // Optional
 }
 
 export interface Interest {
@@ -56,9 +73,9 @@ export interface SessionData {
   startedAt: string;
   lastActivityAt: string;
   language: string;
-  referer: Referer;
+  referer: Referer | boolean; // Allow for the referer to be a boolean or an object
   campaign: boolean;
-  campaignHits: boolean;
+  campaignHits: CampaignHit[]; // Updated to be an array of CampaignHit
   hasVideo: string;
   requiredVideoEvent: string;
   score: string;
