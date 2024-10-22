@@ -1,5 +1,5 @@
 import React from 'react';
-import Home from './pages/Home';
+import Home from './pages/Home'; // Ensure this imports Home.tsx
 import './App.css';
 
 function App() {
