@@ -97,10 +97,34 @@ The application is designed to be responsive, adapting to various screen sizes f
 ![Screenshot 2024-10-23 at 00 06 21](https://github.com/user-attachments/assets/59cae592-287b-41b8-9d73-1d2ec99545ce)
 ![Screenshot 2024-10-23 at 00 06 37](https://github.com/user-attachments/assets/6631d800-01f6-4172-96b5-d8ae16597466)
 
+## Deployment (Vercel Lazy load)
+
+[Sales Viewer Live Demo](https://salesviewer.vercel.app/)
+Pleasem,try this package localy for testing filters.
+as its slow on vercel.
+
+Reasons for Slowness on Vercel:
+
+	1.	Large Dataset Loading: Loading all JSON data at once increases initial load times and slows filtering.
+	2.	Client-Side Filtering: Filtering happens on the client-side, processing the entire dataset, which is inefficient with larger data.
+	3.	Virtual Table Rendering: Managing large data sets in the DOM without pagination affects performance.
+	4.	Network Latency: Cloud-based performance can be affected by network delays.
+
+Solutions for Real Application:
+
+	1.	Server-Side Filtering: Move filtering operations to the server, returning only relevant results based on user criteria.
+	2.	Pagination or Infinite Scrolling: Load a limited number of records initially to reduce data handling and improve load times.
+	3.	Optimize Data Structures: Flatten JSON data and use efficient formats to speed up filtering.
+	4.	Caching: Implement caching strategies for frequently accessed data to minimize network requests.
+	5.	Web Workers: Use Web Workers for background filtering to keep the UI responsive.
+	6.	Throttling/Debouncing: Limit filter operations triggered by user input to reduce processing frequency.
+	7.	Server-Side Rendering (SSR): Consider SSR for pre-rendering pages, improving load times and user experience.
+
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License -
 Contact me for more information.
+aprin.farbod@gmail.com
 Dr. -Ing Farbod Aprin
 
 ---
@@ -203,6 +227,27 @@ Die Anwendung ist so konzipiert, dass sie responsive ist und sich an verschieden
 
 ![Screenshot 2024-10-23 at 00 06 21](https://github.com/user-attachments/assets/59cae592-287b-41b8-9d73-1d2ec99545ce)
 ![Screenshot 2024-10-23 at 00 06 37](https://github.com/user-attachments/assets/6631d800-01f6-4172-96b5-d8ae16597466)
+
+## Deplyment 
+
+[Sales Viewer Live Demo](https://salesviewer.vercel.app/)
+
+Gründe für die Langsamkeit auf Vercel
+
+	1.	Laden großer Datensätze: Das gleichzeitige Laden aller JSON-Daten erhöht die initialen Ladezeiten und verlangsamt die Filterung.
+	2.	Client-seitige Filterung: Die Filterung erfolgt clientseitig, wobei der gesamte Datensatz verarbeitet wird, was bei größeren Daten ineffizient ist.
+	3.	Rendering der virtuellen Tabelle: Das Verwalten großer Datensätze im DOM ohne Pagination beeinträchtigt die Leistung.
+	4.	Netzwerklatenz: Die Leistung in der Cloud kann durch Netzwerkverzögerungen beeinträchtigt werden.
+
+Lösungen für die reale Anwendung
+
+	1.	Server-seitige Filterung: Verschieben Sie Filteroperationen auf den Server und geben Sie nur relevante Ergebnisse basierend auf den Benutzerkriterien zurück.
+	2.	Pagination oder unendliches Scrollen: Laden Sie zunächst eine begrenzte Anzahl von Datensätzen, um die Datenverarbeitung zu reduzieren und die Ladezeiten zu verbessern.
+	3.	Datenstrukturen optimieren: Flachere JSON-Daten verwenden und effiziente Formate nutzen, um die Filterung zu beschleunigen.
+	4.	Caching: Implementieren Sie Caching-Strategien für häufig verwendete Daten, um Netzwerkrequests zu minimieren.
+	5.	Web-Worker: Verwenden Sie Web-Worker für die Hintergrundfilterung, um die Benutzeroberfläche reaktionsfähig zu halten.
+	6.	Throttling/Debouncing: Begrenzen Sie die Filteroperationen, die durch Benutzereingaben ausgelöst werden, um die Verarbeitungsfrequenz zu reduzieren.
+	7.	Server-seitiges Rendering (SSR): Ziehen Sie SSR in Betracht, um Seiten im Voraus zu rendern, was Ladezeiten und Benutzererfahrung verbessert.
 
 ## Lizenz
 
