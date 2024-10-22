@@ -6,54 +6,54 @@ const TableHeader = ({ sortBy, sortOrder, handleSort }) => {
       <tr>
         <th
           onClick={() => handleSort('date')}
-          className="p-2 cursor-pointer text-left date-column"
+          className="p-2 cursor-pointer text-left date-column w-28"
         >
           Date {sortBy === 'date' && (sortOrder === 'asc' ? '↑' : '↓')}
         </th>
         <th
           onClick={() => handleSort('companyName')}
-          className="p-2 cursor-pointer text-left company-column"
+          className="p-2 cursor-pointer text-left company-column w-40 truncate"
         >
           Company{' '}
           {sortBy === 'companyName' && (sortOrder === 'asc' ? '↑' : '↓')}
         </th>
         <th
           onClick={() => handleSort('branch')}
-          className="p-2 cursor-pointer text-left branch-column"
+          className="p-2 cursor-pointer text-left branch-column w-40"
         >
           Branch {sortBy === 'branch' && (sortOrder === 'asc' ? '↑' : '↓')}
         </th>
         <th
           onClick={() => handleSort('city')}
-          className="p-2 cursor-pointer text-left city-column"
+          className="p-2 cursor-pointer text-left city-column w-40"
         >
           City {sortBy === 'city' && (sortOrder === 'asc' ? '↑' : '↓')}
         </th>
         <th
           onClick={() => handleSort('pages')}
-          className="p-2 cursor-pointer text-left pages-column"
+          className="p-2 cursor-pointer text-left pages-column w-8"
         >
           Pages {sortBy === 'pages' && (sortOrder === 'asc' ? '↑' : '↓')}
         </th>
         <th
           onClick={() => handleSort('duration')}
-          className="p-2 cursor-pointer text-left duration-column pl-1"
+          className="p-2 cursor-pointer text-left duration-column w-20"
         >
           Duration {sortBy === 'duration' && (sortOrder === 'asc' ? '↑' : '↓')}
         </th>
         <th
           onClick={() => handleSort('source')}
-          className="p-2 cursor-pointer text-left source-column"
+          className="p-2 cursor-pointer text-left source-column w-44 truncate"
         >
           Source {sortBy === 'source' && (sortOrder === 'asc' ? '↑' : '↓')}
         </th>
         <th
           onClick={() => handleSort('interest')}
-          className="p-2 cursor-pointer text-left interest-column"
+          className="p-2 cursor-pointer text-left interest-column w-40"
         >
           Interest {sortBy === 'interest' && (sortOrder === 'asc' ? '↑' : '↓')}
         </th>
-        <th className="cursor-pointer more-column pr-4 text-right">More</th>
+        <th className="cursor-pointer more-column pr-1 text-left w-14">More</th>
       </tr>
     </thead>
   );

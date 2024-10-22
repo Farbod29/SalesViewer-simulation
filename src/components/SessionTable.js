@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef, useCallback } from 'react';
 import sessionDataOriginal from '../data/sessionDataOrginal.json';
 import TableHeader from './TableHeader';
 import TableBody from './TableBody';
-import '../styles/mediaQueries.css';
+import '../styles/mediaQueries.css'; // Add this line for the new CSS
 
 const SessionTable = () => {
   const [sortedData, setSortedData] = useState([]);
@@ -75,15 +75,15 @@ const SessionTable = () => {
   return (
     <div className="container mx-auto p-1 sm:p-8 text-left mb-1 z-50">
       <div className="table-container relative">
-        <table className="w-full table-auto border-collapse text-xs text-left z-50">
+        <table className="w-full table-auto border-collapse text-xs text-left z-50 table-spacing">
           <TableHeader
             sortBy={sortBy}
             sortOrder={sortOrder}
             handleSort={handleSort}
           />
         </table>
-        <div className="overflow-y-auto max-h-[740px]">
-          <table className="w-full table-auto border-collapse text-xs text-left z-50">
+        <div className="overflow-y-auto max-h-[760px]">
+          <table className="w-full table-auto border-collapse text-xs text-left z-30 table-spacing pt-2 mt-8">
             <TableBody
               sortedData={sortedData}
               sortBy={sortBy}

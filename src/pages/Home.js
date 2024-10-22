@@ -13,7 +13,7 @@ const Home = () => {
       <div className=" flex flex-col flex-grow">
         {/* Fixed Header */}
         <Header />
-        <div className="flex-grow overflow-hidden p-6">
+        <div className="flex-grow overflow-hidden pt-5">
           <SessionTable />
         </div>
       </div>

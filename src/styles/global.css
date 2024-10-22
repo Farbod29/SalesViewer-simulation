@@ -20,3 +20,41 @@ body, html {
     overflow: hidden;
     height: 100%;
   }
+
+  /* Date column */
+.date-column {
+  width: 120px; /* Ensure consistent width */
+}
+
+/* Company column */
+.company-column {
+  width: 160px; /* Adjust width based on content */
+}
+
+/* Branch column */
+.branch-column {
+  width: 140px;
+}
+
+/* Duration column */
+.duration-column {
+  width: 100px;
+}
+
+/* Align all columns properly */
+th, td {
+  padding: 20px;
+  text-align: left;
+}
+
+/* Add this to your global CSS or style file */
+.table-spacing {
+  border-spacing: 3 12px; /* 8px of vertical space between rows */
+}
+
+/* Example CSS */
+td {
+  min-height: 10px; /* Keep this as needed */
+  line-height: 30px; /* Keep this for line height */
+  vertical-align: middle; /* Ensure vertical centering */
+}

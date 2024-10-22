@@ -32,18 +32,20 @@ const TableBody = ({
                 </td>
               </tr>
 
-              {/* Render each session under this date */}
+              {/* Render each session under this date with a blank row between them */}
               {sessions.map((session, index) => (
-                <TableRow
-                  key={session.id}
-                  session={session}
-                  index={index}
-                  hoveredRow={hoveredRow}
-                  setHoveredRow={setHoveredRow}
-                  setActivePopup={setActivePopup}
-                  activePopup={activePopup}
-                  popupRef={popupRef}
-                />
+                <React.Fragment key={session.id}>
+                  <TableRow
+                    session={session}
+                    index={index}
+                    hoveredRow={hoveredRow}
+                    setHoveredRow={setHoveredRow}
+                    setActivePopup={setActivePopup}
+                    activePopup={activePopup}
+                    popupRef={popupRef}
+                  />
+                  {/* Empty row to add space between rows */}
+                </React.Fragment>
               ))}
             </React.Fragment>
           ))
@@ -67,18 +69,23 @@ const TableBody = ({
                 </td>
               </tr>
 
-              {/* Render each session under this company */}
+              {/* Render each session under this company with a blank row between them */}
               {sessions.map((session, index) => (
-                <TableRow
-                  key={session.id}
-                  session={session}
-                  index={index}
-                  hoveredRow={hoveredRow}
-                  setHoveredRow={setHoveredRow}
-                  setActivePopup={setActivePopup}
-                  activePopup={activePopup}
-                  popupRef={popupRef}
-                />
+                <React.Fragment key={session.id}>
+                  <TableRow
+                    session={session}
+                    index={index}
+                    hoveredRow={hoveredRow}
+                    setHoveredRow={setHoveredRow}
+                    setActivePopup={setActivePopup}
+                    activePopup={activePopup}
+                    popupRef={popupRef}
+                  />
+                  {/* Empty row to add space between rows */}
+                  <tr>
+                    <td colSpan="9" className="p-1"></td>
+                  </tr>
+                </React.Fragment>
               ))}
             </React.Fragment>
           ))
@@ -94,6 +101,10 @@ const TableBody = ({
                 activePopup={activePopup}
                 popupRef={popupRef}
               />
+              {/* Empty row to add space between rows */}
+              <tr>
+                <td colSpan="9" className="p-2 "></td>
+              </tr>
             </React.Fragment>
           ))}
     </tbody>
